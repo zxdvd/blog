@@ -1,0 +1,53 @@
+baseurl = "localhost"
+title = "zxdvd's notes"
+languageCode = "en-us"
+
+
+[indexes]
+  tag = "tags"
+  topic = "topics"
+
+[Params]
+  Author = "Xudong Zhang"
+  brand = "zxdvd"
+
+[menu]
+ [[menu.main]]
+   name = "Home"
+   pre = "<i class='fa fa-home fa-fw'></i>"
+   weight = 0
+   identifier = "home"
+   url = "/"
+ # [[menu.main]]
+ #   name = "About"
+ #   pre = "<i class='fa fa-user fa-fw'></i>"
+ #   weight = 1
+ #   identifier = "about"
+ #   url = "/about/"
+ [[menu.main]]
+   name = "Posts"
+   pre = "<i class='fa fa-list fa-fw'></i>"
+   weight = 2
+   identifier = "post"
+   url = "/post/"
+ [[menu.main]]
+   name = "Topics"
+   pre = "<i class='fa fa-folder fa-fw'></i>"
+   weight = 3
+   identifier = "topic"
+   url = "/topics/"
+ [[menu.main]]
+   name = "Tags"
+   pre = "<i class='fa fa-tags fa-fw'></i>"
+   weight = 4
+   identifier = "tag"
+   url = "/tags/"
+ # [[menu.main]]
+ #   name = "Contact"
+ #   pre = "<i class='fa fa-phone-square fa-fw'></i>"
+ #   weight = 5
+ #   identifier = "contact"
+ #   url = "/contact/"
+
+[social]
+  github = "zxdvd"
