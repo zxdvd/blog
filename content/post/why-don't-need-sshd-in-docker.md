@@ -1,6 +1,6 @@
 +++
 Title = "不要在container里使用sshd的n个理由"
-Date = "2014-8-19"
+Date = "2014-08-19"
 Categories = "翻译"
 Tags = ["docker"]
 Slug = "trans/why-not-sshd-docker"

@@ -1,0 +1,24 @@
+branches:
+  only:
+    - content
+
+install: true
+before_script:
+    - >-
+        echo -e $DEPLOY_KEY > $HOME/gh_key \
+            && chmod 600 $HOME/gh_key \
+            && printf "%s\n" \
+                "Host github.com" \
+                "    IdentityFile $HOME/gh_key" \
+                "    LogLevel ERROR" >> $HOME/.ssh/config
+    - git config --global user.email $GH_EMAIL
+    - git config --global user.name $GH_USER
+script:
+    - >-
+        ./bin/hugo_linux --theme=blackburn \
+            && cd public \
+            && git init \
+            && git remote add origin git@github.com:zxdvd/zxdvd.github.io.git \
+            && git add --all \
+            && git commit -m 'update pages via travis' \
+            && git push -f origin master
