@@ -37,6 +37,8 @@ Code repo:
 
 I didn't use a independent repo since there isn't too much codes.
 
+<!--more-->
+
 ### Result
 
     > curl 147.2.212.204/gnome

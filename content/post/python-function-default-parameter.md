@@ -35,6 +35,8 @@ In python, a function is an object too. This object is created after definition.
 And the function name is just like a reference to the object. And the default
 parameter of the function is also determined at the same time.
 
+<!--more-->
+
 Following is official documentation of [function
 definitions](https://docs.python.org/3.5/reference/compound_stmts.html#function-definitions)
 

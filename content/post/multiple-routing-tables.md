@@ -38,6 +38,8 @@ Now we knows that the br2 can receive packages but fail to send them to other
 subnets. So how to? Add another default gateway? A machine can only have one
 default gateway.
 
+<!--more-->
+
 ### Routing tables
 
 It's time to get something about the routing tables. For the linux, you can have

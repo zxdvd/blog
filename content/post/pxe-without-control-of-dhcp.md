@@ -35,6 +35,8 @@ address to the client.
 Now both of the 2 important requirements are satisfied. You can enjoy your pxe
 server.
 
+<!--more-->
+
 ### Implementation
 I set up the whole services in a vagrant box (ubuntu 14.04).
 

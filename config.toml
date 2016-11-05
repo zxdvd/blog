@@ -2,6 +2,7 @@ baseurl = "https://zxdvd.github.io"
 title = "zxdvd's notes"
 languageCode = "en-us"
 
+PygmentsCodeFences = true
 
 [indexes]
   tag = "tags"
