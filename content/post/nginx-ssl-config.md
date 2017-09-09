@@ -25,7 +25,23 @@ cipher suites配置会影响性能和客户端兼容性，需要介绍自己网�
 
 <!--more-->
 
-4. ocstamp 
+4. OCSP stapling
+证书签发之后，除了正常过期之外还有撤销的操作(比如私钥泄漏，域名到期等等)，那么浏览器怎么知道这个证书是否被撤销了呢？之前的老方法是
+CRL，就是定时更新一个包含所以过期证书的list，这样一时效性很差，那么多CA也不可能天天挨个去更新，二是文件体积越来越大，对移动端来说
+开销也很大。现在一半采用OCSP验证，证书里有CA的OCSP地址，客户端可以向这个地址请求来验证证书是否有效。
+``` shell
+openssl s_client -connect www.baidu.com:443  -servername baidu.com  < /dev/null | openssl x509 -noout -text | grep -C1 OCSP
+```
+但是这样做还是有不少问题:
+1. client要发送dns查询OCSP服务器地址，三次握手建立新的连接，获取查询结果，再考虑tcp的慢启动，这样首字节延迟会非常高，影响用户体验
+2. 由用户自己查询，泄漏了用户的隐私，OCSP服务器可以知道用户访问了那些网站，频率如何之类的，网站所有者也不希望这样的信息被泄漏
+3. OCSP查询是http明文查询的，这样中间环节的人也可以知道用户的访问情况
+4. OCSP server是一个单点，如果CA的OCSP服务器挂了，它签发的证书的网站都会受影响(let's encrypt出现过类似问题)
+
+我感觉其中第一点是很重要的，延迟对网站来说是很重要的一个考量，解决的办法是OCSP stapling，由服务器去做这个请求，并且将这个请求缓存起来，
+这样上面的问题基本都解决了，服务器可以提前请求，在缓存过期之前提前更新就可以了(这期间哪怕OCSP server挂了也没什么影响)。这样做也有
+一点不好的地方，把OCSP stapling的response塞在证书里会增大了证书的大小。
+
 
 
 ### References
@@ -35,3 +51,5 @@ cipher suites配置会影响性能和客户端兼容性，需要介绍自己网�
 4. [IE Supported Cipher Suites](https://github.com/client9/sslassert/wiki/IE-Supported-Cipher-Suites)
 5. [ssllab client and server test](https://www.ssllabs.com/projects/index.html)
 6. [nginx rsa+ecdsa certificates](https://scotthelme.co.uk/hybrid-rsa-and-ecdsa-certificates-with-nginx/)
+7. [wiki OCSP](https://en.wikipedia.org/wiki/OCSP_stapling)
+8. [OCSP rfc](https://www.ietf.org/rfc/rfc5019.txt)
