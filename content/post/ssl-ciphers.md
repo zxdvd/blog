@@ -95,9 +95,3 @@ haproxy之类的，我们就需要通过调整优先级来适应各式各样的c
 5. [PFS introduction](https://www.namecheap.com/support/knowledgebase/article.aspx/9652/38/perfect-forward-secrecy-what-it-is)
 6. [cloudflare's ECDSA introduction](https://blog.cloudflare.com/ecdsa-the-digital-signature-algorithm-of-a-better-internet/)
 7. [tls 1.2 rfc](https://tools.ietf.org/html/rfc5246#appendix-A.4.2)
-
-
-1. [nginx ssl ie8](https://ablagoev.github.io/ssl/nginx/ie8/winxp/cipher/2016/12/23/ie8-winxp-nginx-ssl.html)
-2. [nginx https optimizing](https://www.bjornjohansen.no/optimizing-https-nginx)
-3. [IE Supported Cipher Suites](https://github.com/client9/sslassert/wiki/IE-Supported-Cipher-Suites)
-4. [ssllab client and server test](https://www.ssllabs.com/projects/index.html)

@@ -28,7 +28,7 @@ cipher suites配置会影响性能和客户端兼容性，需要介绍自己网�
 4. OCSP stapling
 证书签发之后，除了正常过期之外还有撤销的操作(比如私钥泄漏，域名到期等等)，那么浏览器怎么知道这个证书是否被撤销了呢？之前的老方法是
 CRL，就是定时更新一个包含所以过期证书的list，这样一时效性很差，那么多CA也不可能天天挨个去更新，二是文件体积越来越大，对移动端来说
-开销也很大。现在一半采用OCSP验证，证书里有CA的OCSP地址，客户端可以向这个地址请求来验证证书是否有效。
+开销也很大。现在一般采用OCSP验证，证书里有CA的OCSP地址，客户端可以向这个地址请求来验证证书是否有效。
 ``` shell
 openssl s_client -connect www.baidu.com:443  -servername baidu.com  < /dev/null | openssl x509 -noout -text | grep -C1 OCSP
 ```
@@ -42,6 +42,13 @@ openssl s_client -connect www.baidu.com:443  -servername baidu.com  < /dev/null 
 这样上面的问题基本都解决了，服务器可以提前请求，在缓存过期之前提前更新就可以了(这期间哪怕OCSP server挂了也没什么影响)。这样做也有
 一点不好的地方，把OCSP stapling的response塞在证书里会增大了证书的大小。
 
+另外我检查了一些网站，我发现大网站比如baidu.com, jd.com, google.com, github.com都没有使用OCSP tapling，反而一些小网站比如我自己的(
+用的caddy server), stackoverflow.com之类的都有使用，我猜是这样的，大网站server端不做，让client/browser自己去做，browser自己会缓存
+OCSP的结果，对于大网站，人们天天访问，首次访问没有cache的情况比较少，所以首次访问低延迟的概率是很低的，对于他们来说这是可以接受的。
+对于小网站，每个终端访问频率没那么高，可能几天一次，如果browser端缓存的话，失效的概率比较高，就会经常出现首次访问低延迟的情况，所以
+小网站做OCSP stapling是比较合适的。
+
+浏览器支持: 维基百科的资料显示chrome从2012年开始不做OCSP的检查了，其他浏览器基本都是支持的。
 
 
 ### References
