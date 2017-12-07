@@ -78,6 +78,9 @@ $ openssl s_client -cipher 'ECDH+AESGCM'  -connect www.baidu.com:443  -servernam
 目前支持PFS的都是基于DH(Diffie-Hellman)的cipher，这种cipher对每个session都会生成一个临时的私钥，在session结束后就销毁了，那么就没有上面的问题了。
 当然任何事情都是有代价的，DHE和ECDHE与RSA结合会增加不少CPU负荷，如果与ECDSA结合增加的没有那么明显，但是目前很多老平台老client不支持ECDSA.
 
+需要注意的是对于TLS1.2，如果使用了session ticket，那么对称加密密钥会加密存在client段，一旦服务器的加密密钥丢失，通过解密session ticket可以获取加密密钥进而就可以
+解密以这个key加密的流量了，也就是**session ticket会破坏PFS**.
+
 
 在ciphers的设置上，如果client和server都是可控的，我们可以根据自己的实际情况设置一个性能和安全都不错的cipher，但是如果是web用的，比如nginx，
 haproxy之类的，我们就需要通过调整优先级来适应各式各样的client了。
@@ -95,3 +98,4 @@ haproxy之类的，我们就需要通过调整优先级来适应各式各样的c
 5. [PFS introduction](https://www.namecheap.com/support/knowledgebase/article.aspx/9652/38/perfect-forward-secrecy-what-it-is)
 6. [cloudflare's ECDSA introduction](https://blog.cloudflare.com/ecdsa-the-digital-signature-algorithm-of-a-better-internet/)
 7. [tls 1.2 rfc](https://tools.ietf.org/html/rfc5246#appendix-A.4.2)
+8. [blog session ticket flaws](https://blog.filippo.io/we-need-to-talk-about-session-tickets/)
