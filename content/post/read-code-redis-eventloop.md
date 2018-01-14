@@ -211,7 +211,8 @@ select的eventloop创建, 初始化aeApiState结构，`FD_ZERO(&state-rfds);`将
         int epfd;
         struct epoll_event *events;
     } aeApiState;
-epoll需要一个epoll实例描述符以及epoll_event指针，这里存的就是这两.
+epoll需要一个epoll实例描述符(存epoll_create()的返回值),
+还需要epoll_event指针用来接受epoll_wait返回的事件.
 
 #### static int aeApiCreate(aeEventLoop *eventLoop)
 
@@ -236,10 +237,9 @@ epoll需要一个epoll实例描述符以及epoll_event指针，这里存的就�
 
         numevents = retval;
         // 这里numevents是指返回的有事件触发的数量
+        // 具体接受到的事件在state->events里, 遍历该指针, 将对应的事件写入eventLoop->fired数组里
         for (j = 0; j < numevents; j++) {
             int mask = 0;
-            // 这里我有些疑惑，如果retval只有100, setsize为100, 是不是大于10的event完全就忽略了呢？如果有些事件在大于10的event里呢？
-            // 还是说epoll_wait对events重新排序了？感觉不像啊
             struct epoll_event *e = state->events+j;
 
             if (e->events & EPOLLIN) mask |= AE_READABLE;
@@ -251,43 +251,12 @@ epoll需要一个epoll实例描述符以及epoll_event指针，这里存的就�
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+看了下ae_kqueue.c发现kqueue跟epoll的api非常接近. 结合select和epoll的对比分析下差异和优缺点
+1. select受限于FD_SETSIZE的大小(默认1024), 能监听的fd太少, epoll的maxevents(第三个参数)是个int类型
+2. select的rfds, wfds是值传递，返回的时候作为变化的事件列表返回，因此传进去前要保存原始数据(memcpy)
+3. 因为上面第二点的原因，自然内存开销大一些，性能也会差一些
+4. epoll是同一个epoll_event上可以开启多个事件类型, select是分read, write, exception3个列表.
+5. select只支持水平触发，epoll支持边沿触发和水平触发
 
 
 ### Reference:
