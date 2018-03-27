@@ -15,7 +15,6 @@ unit是expire的单位，有秒和毫秒两种，对应SET_EX和SET_PX.
 这里就是解析参数和对应的处理，设置key的value，如果有expire设置expire，通知keyspace发生了set/expire事件.
 
 set/setnx/setex/psetex都是基于这个函数处理的.
-zipmap是为了节省内存空间，将键值对拼接成string来存储. 下面是string的布局
 
 后面还有get/getset/setrange/getrange/mget/mset/msetnx/incr/decr/incrby/decrby/append/strlen等命令的处理.
 

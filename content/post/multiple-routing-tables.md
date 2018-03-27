@@ -61,7 +61,7 @@ could only set up another one for the br2.
 1. `#echo 10 table_br2 >> /etc/iproute2/rt_tables` to add a table.
 
 2. `#ip route add 192.168.2.0/24 dev br2 src 192.168.2.7 table table_br2`   
-   `#ip route default via 192.168.2.254 dev br2 table table_br2`
+   `#ip route add default via 192.168.2.254 dev br2 table table_br2`
 
 3. After setting up this table, we need to rules to let the packages to know
    which table to select.    
