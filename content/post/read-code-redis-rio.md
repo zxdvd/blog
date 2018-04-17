@@ -51,8 +51,9 @@ rio.h后面的几个函数rioWrite, rioRead, rioTell, rioFlush是rio对象的通
 
 后面的file，fdset都是类似与这样的。
 
-这样整个定义完了，对外暴露统一的read, write, tell, flush,
-后面的一堆rioWriteBulkXXXX函数就不需要关心底层细节了.
+这样整个定义完了，对外暴露统一的read, write, tell, flush函数.
+
+后面的一堆rioWriteBulkXXXX主要是在aof模块使用，用来生成aof的log文件字符串(在aof模块里有介绍).
 
 关于rio.*的部分，代码并不难理解，我们需要好好学习封装和抽象的艺术.
 
