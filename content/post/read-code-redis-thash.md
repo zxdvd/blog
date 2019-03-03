@@ -10,8 +10,9 @@ Authors = "Xudong"
 t_hash.c是对hget/hset/hmget/hmset/hdel/hkeys/hvals等命令的处理，以及背后的增删改查逻辑.
 
 看过object.c都知道所有key的value都是以robj结构存的，对于hash，robj有两种表达方式.
-1. 对于比较小的hash键值对，以ziplist的形式存在(实质是一个长字符串)，比如第0个是key，第1个是value，第2个是key，第3个是value，这样紧挨着，对应的robj->encoding为`OBJ_ENCODING_ZIPLIST`.
-2. 对于ziplist超过一定长度时，需要转换成真正的hash表结构(dict.c), 这时它的robj->encoding为`OBJ_ENCODING_HT`.
+1. 在redis 2.9.3版本里，hash一开始都是zipmap形式，然后变成hash的. 后来版本变成了ziplist然后变成hash.
+2. 对于比较小的hash键值对，以ziplist的形式存在(实质是一个长字符串)，比如第0个是key，第1个是value，第2个是key，第3个是value，这样紧挨着，对应的robj->encoding为`OBJ_ENCODING_ZIPLIST`.
+3. 对于ziplist超过一定长度时，需要转换成真正的hash表结构(dict.c), 这时它的robj->encoding为`OBJ_ENCODING_HT`.
 
 在每次插入/更新的时候都会检查key/value的长度，超过了`server.hash_max_ziplist_value`(默认64字节), 就会将ziplist的形式转换成hash table的形式.
 插入之后还会检查总的键值对数量，超过`server.hash_max_ziplist_entries`(默认是512个)时，也会转换成hash table.

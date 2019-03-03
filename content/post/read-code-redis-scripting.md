@@ -1,6 +1,6 @@
 +++
 title = "代码阅读: redis-scripting"
-date = "2018-01-13"
+date = "2018-04-05"
 categories = ["Linux"]
 tags = ["read-code", "c", "redis"]
 slug = "read-code-redis-scripting"

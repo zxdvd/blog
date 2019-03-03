@@ -80,7 +80,8 @@ rehashidx记录扩容时，当前挪到那个槽位了，-1表示当前没有在
 再多redis就要强制进行resize了.
 
 #### hash function
-这里面定义了`dictIntHashFunction`, `dictGenHashFunction`(murmurhash2), `dictGenCaseHashFunction`(大消息不敏感)这3种hash函数.
+这里面定义了`dictIntHashFunction`, `dictGenHashFunction`(murmurhash2), `dictGenCaseHashFunction`(大小写不敏感)这3种hash函数.
+redis之前用的是murmurhash，在2017年二月换成了siphash(为了抵御hashDOS攻击, 我个人觉得不是什么严重问题).
 
 #### dictCreate, _dictInit
 dict的创建和初始化函数

@@ -84,11 +84,12 @@ ae_evport.c, ae_epoll.c, ae_kqueue.c, ae_select.c是对底层multiplexing的封�
 初始化的时候event的mask被置为了AE_NONE.
 
 #### int aeResizeSetSize(aeEventLoop *eventLoop, int setsize)
-这个是对eventLoop进行扩容(只能扩大，不能减小), 主要是调用ae_XXX.c的aeApiResize函数.
+这个是对eventLoop进行扩容(或者缩容), 主要是调用ae_XXX.c的aeApiResize函数.
 调用成功后，对events, fired进行realloc, 并初始化新增的这些events.
 
 #### int aeCreateFileEvent(aeEventLoop *eventLoop, int fd, int mask, aeFileProc *proc, void *clientData)
-这里是向eventLoop里添加一个fileEvent事件，设置对应的读写mask, 并更新maxfd.
+这里是向eventLoop里添加一个fileEvent事件，设置对应的读写mask, 并更新maxfd, 设置对应的rfileProc, wfileProc函数指针.
+这里并没有判断该fd是否已经添加过.
 
 #### void aeDeleteFileEvent(aeEventLoop *eventLoop, int fd, int mask)
 这里是删除一个事件的读/写/读写, 注意这里可能只是修改某个事件注册的类型，
@@ -107,7 +108,8 @@ ae_evport.c, ae_epoll.c, ae_kqueue.c, ae_select.c是对底层multiplexing的封�
 初始化一个若干毫秒后触发的timeEvent事件并插入eventLoop的时间事件链表的头部.
 
 #### int aeDeleteTimeEvent(aeEventLoop *eventLoop, long long id)
-根据id删除一个timeEvent，起始这里没有删除，只是把id标记为-1了.
+根据id删除一个timeEvent，实际上这里没有删除，只是把id标记为-1了. 我感觉这里可以优化一下,
+timeEvent插入的时候是头插，而且id是递增的，这里应该可以比较id提前结束(不过似乎还需要考虑int溢出的问题).
 
 #### static aeTimeEvent *aeSearchNearestTimer(aeEventLoop *eventLoop)
 从timeEvent的链表里找最近的时间(时间最小的)

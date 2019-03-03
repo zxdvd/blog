@@ -7,6 +7,8 @@ slug = "read-code-redis-zipmap"
 Authors = "Xudong"
 +++
 
+zipmap这个数据结构开始是为了hash存在的，节省内存，达到一定条件和数量后变成了hash。后来zipmap被ziplist取代了(commit ebd85e, version 2.9.2)，代码被保留了但是没有被用到.
+
 zipmap是为了节省内存空间，将键值对拼接成string来存储. 下面是string的布局
 
      * Memory layout of a zipmap, for the map "foo" => "bar", "hello" => "world":
