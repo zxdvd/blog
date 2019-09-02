@@ -11,7 +11,23 @@
       
     select version();
 </details>
- 
+
+#### string related
+<details open><summary>postgres</summary>
+  
+* base64 decode/encode
+
+      select encode('hello', 'base64');    -- output aGVsbG8=
+      select convert_from(decode('aGVsbG8=', 'base64'), 'utf8');  -- decode returns bytea
+</details>
+<details><summary>mysql</summary>
+
+* base64 decode/encode
+
+      select to_base64('hello');    -- output aGVsbG8=
+      select from_base64('aGVsbG8='); 
+</details>
+
 #### timezone related
 * show timezone
   <details open>
