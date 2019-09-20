@@ -3,18 +3,17 @@
 #### show server version
 <details open>
   <summary>postgres</summary>
-      
+
     select version();
 </details>
 <details>
   <summary>mysql</summary>
-      
+
     select version();
 </details>
 
-#### string related
 <details open><summary>postgres</summary>
-  
+
 * base64 decode/encode
 
       select encode('hello', 'base64');    -- output aGVsbG8=
@@ -25,7 +24,7 @@
 * base64 decode/encode
 
       select to_base64('hello');    -- output aGVsbG8=
-      select from_base64('aGVsbG8='); 
+      select from_base64('aGVsbG8=');
 </details>
 
 #### timezone related
