@@ -11,6 +11,8 @@
 
 但是`select * from student_score limit 5`可以看到结果里闪亮的`createdAt`
 
+![pg name case senstive](./images/pg-basic_name_case-sensitive1.jpg)
+
 这到底咋回事？
 
 实际上是这样的，postgres库名，schema名，表名，字段名等relations默认都是大小写不敏感的，但是如果你确实想使用大写的，
@@ -27,6 +29,8 @@
     select "ID" from "UP_CASE";
 
 双引号里面就不是大小写敏感的，创建的时候是什么样就需要什么样，比如`select id, "Id", ID`这些都不行，必须`select "ID"`.
+
+![pg name case senstive](./images/pg-basic_name_case-sensitive2.jpg)
 
 这样用起来得多敲很多的双引号，感觉不如小写的方便省事，我想这也许就是为啥通常看到的表很少使用大写的原因吧。
 
