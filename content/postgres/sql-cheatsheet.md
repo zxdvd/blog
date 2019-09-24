@@ -27,6 +27,32 @@
       select from_base64('aGVsbG8=');
 </details>
 
+#### string related
+
+<details open>
+  <summary>postgres</summary>
+  
+* basic string manipulation
+  
+      -- remove leading and trailing space, I added '#' so that it's easy to check the result
+      select '#' || trim('  abc  ') || '#';
+      -- you can also trim any other characters, and you can choose trim leading, trailing or both
+      select '#' || trim(both ' *=' from ' **  b.=c = ')  || '#';   -- get `#b.=c#`
+      
+      select 'hello' || ' world' || '!';         -- concat multiple strings
+
+</details>
+<details>
+  <summary>mysql</summary>
+
+* basic string manipulation
+
+      select trim('  abc  ');  -- remove leading and trailing space
+      
+      select concat('hello', ' world', '!');         -- concat multiple strings
+</details>
+
+
 #### timezone related
 * show timezone
   <details open>
