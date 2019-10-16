@@ -81,7 +81,7 @@
 <details open>
   <summary>debian/dpkg</summary>
 
-    TODO
+    dpkg -r linux-image-4.4.0-150-generic           # remove installed package
 </details>
 <details>
   <summary>yum/rpm</summary>

@@ -29,26 +29,28 @@ same function write using plpgsql
     end;
     $$ language plpgsql immutable;
 ```
-	
+
 #### returns multiple values via OUT parameter
 
 ``` plpgsql
     create function fn1 (a int, b text, OUT out1 int, OUT out2 text) as $$
 		begin
-			select t.a, t.b  into out1, out2 from table1;
+			select id, name  into out1, out2 from table1;
 		end;
-		$$ language plpgsql;
+    $$ language plpgsql;
 
-	  -- for language sql
-    select t.a, t.b from table1;
+	-- for language sql
+    select id, name from table1;
+
+    -- use it like `select * from fn1(1, 'abc');`
  ```
-	
+
 #### returns multiple values via create new type
 First create type for the returned values.
 
 ``` sql
     create type typ_data as (a int, b int);
-		
+
 		create or replace function get_data() returns typ_data as $$
 		        select x, x * 2 from generate_series(1, 5) as x;
 		$$ language sql immutable;

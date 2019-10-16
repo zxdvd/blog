@@ -6,6 +6,8 @@
 * [basic: 为啥不建议用ps ef查看进程](./content/shell/basic:+为啥不建议用ps+ef查看进程.md)
 * [package-manage-cheatsheet](./content/shell/package-manage-cheatsheet.md)
 * [pg-basic: null的一些注意事项](./content/postgres/pg-basic:+null的一些注意事项.md)
+* [pg-procedure: examples](./content/postgres/pg-procedure:+examples.md)
+* [pg-basic: syntax string](./content/postgres/pg-basic:+syntax+string.md)
 * [mysql-note](./content/postgres/mysql-note.md)
 * [pg-basic: 表名字段名是大小写问题](./content/postgres/pg-basic:+表名字段名是大小写问题.md)
 * [sql-cheatsheet](./content/postgres/sql-cheatsheet.md)
