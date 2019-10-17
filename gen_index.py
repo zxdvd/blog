@@ -1,6 +1,8 @@
 
 import os
 
+from urllib.parse import quote
+
 def walk_dir(folder):
     posts = []
     with os.scandir(folder) as it:
@@ -17,8 +19,7 @@ def gen_index(folder, template, target, placeholder):
             continue
         name = entry.name[:-3]
         link = './' + entry.path
-        link = link.replace(' ', '+')
-        post = '* [%s](%s)' % (name, link)
+        post = '* [%s](%s)' % (name, quote(link))
         links.append(post)
     index = '\n'.join(links)
     with open(template, 'r') as f1, open(target, 'w') as f2:
