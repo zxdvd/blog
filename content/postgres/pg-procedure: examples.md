@@ -49,11 +49,23 @@ same function write using plpgsql
 First create type for the returned values.
 
 ``` sql
-    create type typ_data as (a int, b int);
+create type typ_data as (a int, b int);
 
-		create or replace function get_data() returns typ_data as $$
-		        select x, x * 2 from generate_series(1, 5) as x;
-		$$ language sql immutable;
+create or replace function get_data() returns typ_data as $$
+    select x, x * 2 from generate_series(1, 5) as x;            -- this will only returns one row
+$$ language sql immutable;
+```
+
+plpgsql example
+``` sql
+create type type_test1 as (a int, b int);
+create or replace function test1() returns type_test1 as $$
+declare result type_test1;
+begin
+    select 10,20 into result;
+    return result;
+end $$ language plpgsql;
+select test1();
 ```
 
 #### returns multiple values via table name
@@ -79,6 +91,29 @@ Just select the result while using sql language.
 		        select x, x * 2 from generate_series(1, 5) as x;
 		$$ language sql immutable;
 ```
+
+#### attention: be care of `return query select`
+Giving following example, you can copy and try it:
+
+```sql
+create or replace function test1(int) returns table(s text) as $$
+begin
+        if ($1 > 10) then
+                return query select '>10';
+                -- return;
+        end if;
+        return query select '<=10';
+end $$ language plpgsql;
+select test1(1);
+select test1(100);
+```
+You may find `select test(1)` works as you expected. But `select test1(100)` returns two rows, `>10` and `<=10`.
+
+Attention here:
+
+    return query select WON'T stop function execution, it just gives rows back.
+    If you want to stop after it, you can add another line `return;` after it. (uncomment -- in above function)
+
 	
 #### returns multiple rows via `returns setof TABLE_NAME`
 For SETOF, you can using existed table name
