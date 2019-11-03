@@ -58,7 +58,7 @@ master to slaves?
 
 You may think just replay all SQLs in the slaves. It may be acceptable but with lots of limitations.
 
-  * think about update that has random() function, it gave different results at each nodes
+  * think about update that has random()/now() function, it gave different results at each nodes
   * in concurrent situations, different execute order may lead to different results
   * think about query like `update t1 set status = 1 where id in (select id from t1 limit 10)`,
     query result without order by is uncertain

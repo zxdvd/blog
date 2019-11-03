@@ -40,6 +40,24 @@ ssh的配置项非常多，上面只是配置了最简单的三个，如果有�
     Host *
         ServerAliveInterval 60
 
+从openssh 7.3p1开始, ssh config支持**Include**指令了，如果管理的机器比较多(个人/公司/开发/测试)，
+可以类似这样组织
+
+    In ~/.ssh/config
+        Include dev_config
+        Include prod_config
+        Include my_personal_config
+        Host *
+            ServerAliveInterval 60
+
+    In ~/.ssh/dev_config
+        Host dev_node1
+            XXX
+
+    In ~/.ssh/prod_config
+        Host prod_k8s
+            XXX
+
 想了解更丰富的ssh的配置，可以man ssh_config查看.
 
 按照上面的范例，我们可以配置更多的host，以后就可以ssh nginx, ssh mysql这样玩啦.
