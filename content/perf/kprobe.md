@@ -20,7 +20,7 @@ First change workdir to `/sys/kernel/debug/tracing`, all following commands are
 executed at this directory so that no need to use long absolute paths.
 
 ``` shell
-# Add a probe
+# Add a probe, `p` is enter point probe while `r` is return value probe
 root$ echo 'p:test_probe sys_execve' >> kprobe_events
 
 # check the added probes
@@ -126,6 +126,12 @@ root$ echo 'filename ~ "/tmp/*"' >> events/kprobes/filter
 ```
 
 You can group several expressions using `||` or `&&`.
+
+
+### brendangregg's perf-tools scripts
+Brendangregg wrotes a collection of shell perf scripts that utilize kprobe/uprobe. You can 
+have a try. Just [clone and run](https://github.com/brendangregg/perf-tools.git), no 
+dependent packages.
 
 
 ### some source codes
