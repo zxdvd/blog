@@ -71,6 +71,14 @@ select test1();
 #### returns multiple values via table name
 Just like this for below `returns multiple rows`, just `returns TABLE_NAME`.
 
+#### no returns
+Sometimes the function may just do a update or insert and there is no return. 
+Then you can define it using `returns void`
+
+``` sql
+create or replace function test1() returns void as ...
+``` sql
+
 <br>
 
 ## returns multiple rows
