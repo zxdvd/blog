@@ -13,57 +13,55 @@
     rpm -ivh local.rpm              # install a local package
 </details>
 
-#### query package or file
-* basic query
-  <details open>
-    <summary>dpkg</summary>
+### query package or file
+#### list all installed packages
 
-      dpkg -l                 # dpkg --list, list all installed package
-      # list all package and sort by size reversely
-      dpkg-query  --show  -f='${Installed-Size} ${Package} ${Version}\n' | sort -rn
-      dpkg -L golang          # list all files of a installed package
-      dpkg -S /usr/bin/make   # find which package own a specific file
+    dpkg$ dpkg -l
+    rpm$ rpm -qa
+    pip$ pip list
+    macports$ port installed
 
-  </details>
+#### list all package and sort by size reversely
+
+    dpkg$ dpkg-query  --show  -f='${Installed-Size} ${Package} ${Version}\n' | sort -rn
+    rpm$ rpm -qa --queryformat '%{SIZE} %{NAME} %{VENDOR}\n' | sort -rn
+    rpm$ rpm -qa --last          # list recent installed packages
+
+#### list all files of a installed package
+
+    dpkg$ dpkg -L golang
+    rpm$ rpm -ql golang
+    pip$ pip show -f requests
+    macports$ port content python38
+
+#### find which package owned a specific file
+
+    dpkg$ dpkg -S /usr/bin/make
+    rpm$ rpm -qf $(which make)
+
+#### show dependencies of a package
+
+    dpkg$ 
+    rpm$ rpm -qR make
+    rpm$ rpm -qR -p golang.rpm                 # show dependencies of a downloaded package
+
+#### list all files of a local package without install it
+
+    dpkg$ dpkg -c golang.deb
+    OR shell$ ar t golang.deb            # you can also use ar since xx.deb is a archive
+    dpkg$ dpkg-deb -x golang.deb         # this will extract a local package
+
+
+    rpm -ql -p golang.rpm
+
+#### basic query
   <details>
     <summary>rpm</summary>
 
-      rpm -qa                 # list all installed package
-      # list all package and sort by size reversely
-      rpm -qa --queryformat '%{SIZE} %{NAME} %{VENDOR}\n' | sort -rn
-      rpm -qa --last          # list recent installed packages
-      rpm -ql golang          # list all files of a installed package
       rpm -qi golang          # show info of a installed package
-      rpm -qf $(which make)   # find which package own a specific file
 
   </details>
 
-* query a local package
-  <details open>
-    <summary>dpkg</summary>
-
-      dpkg -c golang.deb                   # list all files of a local package WITHOUT install
-      ar t golang.deb                      # this also list all files of deb package since it is a archive
-      dpkg-deb -x golang.deb               # this will EXTRACT a local deb package
-  </details>
-  <details>
-    <summary>rpm</summary>
-
-      rpm -qlp golang.rpm                  # list all files of a local package WITHOUT install
-  </details>
-
- * query dependency
-  <details open>
-    <summary>dpkg</summary>
-
-      TODO
-  </details>
-  <details>
-    <summary>rpm</summary>
-
-      rpm -qR make                         # query dependency of make (make depends on what?)
-      rpm -qRp golang.rpm                  # query depency of a local package
-  </details>
 
 #### updated related
 <details open>
