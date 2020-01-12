@@ -21,6 +21,7 @@
 * [pg-stat: idx_scan vs idx_tup_read vs idx_tup_fetch](./content/postgres/pg-stat%3A%20idx_scan%20vs%20idx_tup_read%20vs%20idx_tup_fetch.md)
 * [mysql-note](./content/postgres/mysql-note.md)
 * [pg-basic: 表名字段名是大小写问题](./content/postgres/pg-basic%3A%20%E8%A1%A8%E5%90%8D%E5%AD%97%E6%AE%B5%E5%90%8D%E6%98%AF%E5%A4%A7%E5%B0%8F%E5%86%99%E9%97%AE%E9%A2%98.md)
+* [pg12: with CTE and materialize](./content/postgres/pg12%3A%20with%20CTE%20and%20materialize.md)
 * [sql-cheatsheet](./content/postgres/sql-cheatsheet.md)
 * [kprobe](./content/perf/kprobe.md)
 * [uprobe](./content/perf/uprobe.md)
