@@ -122,7 +122,7 @@ Attention here:
     return query select WON'T stop function execution, it just gives rows back.
     If you want to stop after it, you can add another line `return;` after it. (uncomment -- in above function)
 
-	
+
 #### returns multiple rows via `returns setof TABLE_NAME`
 For SETOF, you can using existed table name
 
@@ -131,7 +131,7 @@ For SETOF, you can using existed table name
 			SELECT * FROM pg_roles;
 		$$ LANGUAGE sql;
 ```
-		
+
 #### returns multiple rows via `returns setof CREATED_TYPE`
 Just like return one row result, created new type first, and then `returns setof xxx_type`.
 
