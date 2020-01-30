@@ -1,17 +1,38 @@
-### package manage cheatsheet
+## package manage cheatsheet
 
-#### install related
-<details open>
-  <summary>debian/dpkg</summary>
+### package managers
+#### dpkg
+`dpkg` is the `deb` package manager. You can use it to manage deb packages on system.
 
-    dpkg -i local.deb               # install a local package
-    apt-get install linux-image-amd64=3.16+63         # install a package with specific version
-</details>
-<details>
-  <summary>yum/rpm</summary>
+#### apt
+`apt` is package manager of debian, ubuntu and variants. It's frontend of `dpkg`. You can use it to get packages from remote repositories and then install them using `dpkg` backend.
 
-    rpm -ivh local.rpm              # install a local package
-</details>
+#### rpm
+`rpm` is the `rpm` package manager. Often used on redhat, fedora, suse.
+
+#### yum
+`yum` is frontend of `rpm`, used on redhat, fedora. It's like `apt`.
+
+#### zypper
+`zypper` is also frontend of `rpm`, used on opensuse.
+
+#### macports
+`macports` is third-part package manager worked on mac osx. You can use it to install packages from repositories.
+
+#### homebrew
+`homebrew` is another third-part package manager on mac osx.
+
+#### pip
+`pip` is used to manage python packages.
+
+### install package
+#### install from repo or source
+    # debian/ubuntu install with version
+    apt# apt-get install linux-image-amd64=3.16+63
+
+#### install a local package
+    dpkg# dpkg -i golang.deb       # debian/ubuntu
+    rpm# rpm -ivh local.rpm        # redhat
 
 ### query package or file
 #### list all installed packages
@@ -34,6 +55,10 @@
     pip$ pip show -f requests
     macports$ port content python38
 
+#### show info/description of a package
+
+    rpm$ rpm -qi golang          # info of installed package
+
 #### find which package owned a specific file
 
     dpkg$ dpkg -S /usr/bin/make
@@ -54,37 +79,66 @@
 
     rpm -ql -p golang.rpm
 
-#### basic query
-  <details>
-    <summary>rpm</summary>
-
-      rpm -qi golang          # show info of a installed package
-
-  </details>
+### update package
+#### upgrade from local package
+    rpm# rpm -Uvh golang.rpm
 
 
-#### updated related
-<details open>
-  <summary>debian/dpkg</summary>
+### remove package
+    dpkg# dpkg -r linux-image-4.4.0-150-generic
+    rpm# rpm -ev golang
+    rpm# rpm -ev --nodeps golang    # remove without check dependencies
 
-    TODO
-</details>
-<details>
-  <summary>yum/rpm</summary>
 
-    rpm -Uvh golang.rpm             # upgrade from a local package
-</details>
+### apt package priority
+You can add many repos. Then you may get cases that there are many versions of a same package in different repos. So which one will be installed? How to install a specific one?
 
-#### remove package
-<details open>
-  <summary>debian/dpkg</summary>
+Each repo has a priority number, by default it is 500. For backport repo, it is 100. So that you won't install from backport repo by default since it has a lower priority.
 
-    dpkg -r linux-image-4.4.0-150-generic           # remove installed package
-</details>
-<details>
-  <summary>yum/rpm</summary>
+Show current priority of all repos:
 
-    rpm -ev golang             # remove package
-    rpm -ev --nodeps golang    # remove without check dependencies
-</details>
+    # apt-cache policy
+    100 http://mirrors.tencentyun.com/debian stretch-backports/main amd64 Packages
+    release o=Debian Backports,a=stretch-backports,n=stretch-backports,l=Debian Backports,c=main,b=amd64
+    origin mirrors.tencentyun.com
+    500 http://mirrors.tencentyun.com/debian stretch/main amd64 Packages
+    release v=9.11,o=Debian,a=oldstable,n=stretch,l=Debian,c=main,b=amd64
+    origin mirrors.tencentyun.com
 
+
+Show all candidates of a package:
+
+    # apt-cache policy nginx
+    nginx:
+      Installed: 1.10.3-1+deb9u3
+      Candidate: 1.16.1-3
+      Version table:
+        1.16.1-3 500
+            500 http://mirrors.tencentyun.com/debian unstable/main amd64 Packages
+        1.14.1-1~bpo9+1 100
+            100 http://mirrors.tencentyun.com/debian stretch-backports/main amd64 Packages
+    *** 1.10.3-1+deb9u3 500
+            500 http://mirrors.tencentyun.com/debian stretch/main amd64 Packages
+            500 http://mirrors.tencentyun.com/debian-security stretch/updates/main amd64 Packages
+
+
+You can force install from a lower priority repo:
+
+    ## use -V to show detail package version
+    ## -t stretch-backports means install from this repo
+    # apt-get -V install -t stretch-backports nginx
+
+You can also change priority of a specific package or a repo.
+
+Set a higher priority for backport repo:
+
+    # add a file under /etc/apt/preferences.d/
+    Package: *
+    Pin: release a=stretch-backports
+    Pin-Priority: 600
+
+If you only want to set higher priority for a specific package, just change the `*` to the package name.
+
+Multiple packages can be concated using whitespace. Like
+
+    Package: nginx golang
