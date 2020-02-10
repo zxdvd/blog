@@ -1,3 +1,7 @@
+<!---
+tags: linux, shell, apt
+-->
+
 ## package manage cheatsheet
 
 ### package managers
