@@ -3,6 +3,7 @@
 
 * [go-vet](./content/go/go-vet.md)
 * [perf: reduce allocation from 7 to 1](./content/go/perf%3A%20reduce%20allocation%20from%207%20to%201.md)
+* [go-slice](./content/go/go-slice.md)
 * [source code: bio-thread](./content/redis/source%20code%3A%20bio-thread.md)
 * [ssh config的使用技巧](./content/shell/ssh%20config%E7%9A%84%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7.md)
 * [command-awk](./content/shell/command-awk.md)
@@ -29,3 +30,4 @@
 * [lock: lwlock part 1](./content/postgres/sourcecode/lock%3A%20lwlock%20part%201.md)
 * [kprobe](./content/perf/kprobe.md)
 * [uprobe](./content/perf/uprobe.md)
+* [c-macro: multiple statements](./content/c/c-macro%3A%20multiple%20statements.md)
