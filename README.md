@@ -1,6 +1,7 @@
 
 ### Notes
 
+* [wrk: lua script](./content/tools/wrk%3A%20lua%20script.md)
 * [go-vet](./content/go/go-vet.md)
 * [perf: reduce allocation from 7 to 1](./content/go/perf%3A%20reduce%20allocation%20from%207%20to%201.md)
 * [go-slice](./content/go/go-slice.md)
@@ -17,6 +18,7 @@
 * [pg-basic: null的一些注意事项](./content/postgres/pg-basic%3A%20null%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9.md)
 * [db: redo log](./content/postgres/db%3A%20redo%20log.md)
 * [pg-basic: upsert](./content/postgres/pg-basic%3A%20upsert.md)
+* [pg-rule](./content/postgres/pg-rule.md)
 * [pg-procedure: examples](./content/postgres/pg-procedure%3A%20examples.md)
 * [pg: vscode remote debug](./content/postgres/pg%3A%20vscode%20remote%20debug.md)
 * [pg-transaction: clog part1](./content/postgres/pg-transaction%3A%20clog%20part1.md)
@@ -28,6 +30,8 @@
 * [pg12: with CTE and materialize](./content/postgres/pg12%3A%20with%20CTE%20and%20materialize.md)
 * [sql-cheatsheet](./content/postgres/sql-cheatsheet.md)
 * [lock: lwlock part 1](./content/postgres/sourcecode/lock%3A%20lwlock%20part%201.md)
+* [nginx: process phase](./content/nginx/nginx%3A%20process%20phase.md)
+* [nginx: request-rate-limit](./content/nginx/nginx%3A%20request-rate-limit.md)
 * [kprobe](./content/perf/kprobe.md)
 * [uprobe](./content/perf/uprobe.md)
 * [c-macro: multiple statements](./content/c/c-macro%3A%20multiple%20statements.md)
