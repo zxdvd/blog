@@ -19,6 +19,8 @@ def gen_index(folder, template, target, placeholder):
             continue
         name = entry.name[:-3]
         link = './' + entry.path
+        pdir = os.path.basename(os.path.dirname(link))
+        name = '%s / %s' % (pdir, name)
         post = '* [%s](%s)' % (name, quote(link))
         links.append(post)
     index = '\n'.join(links)
