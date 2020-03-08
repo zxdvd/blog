@@ -2,6 +2,8 @@
 tags: linux, network, tcp
 -->
 
+## tcp TIME-WAIT state
+
 ### tcp state transition diagram
 Following is the TCP state transition diagram from internet.
 
@@ -81,6 +83,6 @@ On linux, you can get the 2MSL from the /proc
 And you can also change it by echo the desired number to that file.
 
 ### FIN and RST (reset) packet
-If one side sent FIN but received a RST packet, then it will go to CLOSE state. And
+If one side sent FIN but received a RST packet, then it will go to CLOSED state. And
  there isn't the 2MSL waiting problem.
 
