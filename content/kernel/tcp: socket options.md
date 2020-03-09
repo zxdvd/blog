@@ -29,7 +29,7 @@ If l_onoff is non-zero (true), then l_linger is timeout in seconds that `close()
  wait. If all data sent successfully, `close()` will return successfully. Otherwise
  you'll get `EWOULDBLOCK` if data sent failed or timeout.
 
-And there is a special case:
+And there is a special case when l_onoff is true:
 
     if l_linger is 0, then it will abort the connection with RST packet when close.
 
