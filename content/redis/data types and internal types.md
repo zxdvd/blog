@@ -8,7 +8,7 @@ We know that redis following main data types:
 
 | outer type         | internal type     |
 | ------------------ | ----------------- |
-| string             | sds               |
+| string             | sds, embedded sds |
 | list               | quicklist         |
 | set                | intset, dict      |
 | zset (ordered set) | ziplist, skiplist |
