@@ -6,13 +6,13 @@ tags: redis, data type
 
 We know that redis following main data types:
 
-| outer type         | internal type     |
-| ------------------ | ----------------- |
-| string             | sds, embedded sds |
-| list               | quicklist         |
-| set                | intset, dict      |
-| zset (ordered set) | ziplist, skiplist |
-| hash               | ziplist, dict     |
+| outer type         | internal type           |
+| ------------------ | ----------------------- |
+| string             | sds, embedded sds       |
+| list               | quicklist               |
+| set                | intset, dict            |
+| zset (ordered set) | ziplist, skiplist, dict |
+| hash               | ziplist, dict           |
 
 
 Each data type may use one or more internal type to store.
@@ -31,13 +31,14 @@ For hash ,it will use `ziplist` for small size and convert to use `dict`.
 
 If we think about internal data structure first, we can get following table:
 
-| internal type | property               | outer type |
-| ------------- | ---------------------- | ---------- |
-| sds           |                        | string     |
-| quicklist     | ordered, linked        | list, zset |
-| dict          | hash table             | set, hash  |
-| ziplist       | binary string, ordered | zset, hash |
-| intset        | binary, ordered        | set        |
+| internal type | property               | outer type      |
+| ------------- | ---------------------- | --------------- |
+| sds           |                        | string          |
+| quicklist     | ordered, linked        | list            |
+| skiplist      | skiplist, ordered      | zset            |
+| dict          | hash table             | set, hash, zset |
+| ziplist       | binary string, ordered | zset, hash      |
+| intset        | binary, ordered        | set             |
 
 These types and data are wrapped in a union `robj` type. And I'll explain it in another
  post.
