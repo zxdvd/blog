@@ -6,7 +6,7 @@ from urllib.parse import quote
 def walk_dir(folder):
     posts = []
     with os.scandir(folder) as it:
-        for entry in it:
+        for entry in sorted(it, key=lambda e: e.path):
             if entry.is_dir():
                 yield from walk_dir(entry.path)
             if entry.is_file():
