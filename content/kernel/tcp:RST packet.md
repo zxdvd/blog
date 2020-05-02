@@ -18,7 +18,7 @@ If the receiver is in SYN-RECEIVED and came from LISTEN, then it will go to
 
 ### why and when got RST
 - connect to a port that has no server listen on it
-- firewall may rejec the connection via RST (you can config iptables to reject)
+- firewall may reject the connection via RST (you can config iptables to reject)
 - routers in the middle may send RST
 - userspace close socket without read received buffer in the kernel
 - send to a closed socket
