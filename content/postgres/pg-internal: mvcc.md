@@ -1,5 +1,5 @@
 <!---
-tags: postgres, internal, mvcc
+tags: postgres, internal, storage, mvcc
 -->
 
 ## pg-internal: MVCC
