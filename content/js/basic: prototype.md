@@ -64,6 +64,9 @@ p1.__proto__.constructor === Person         // true
 p1.constructor === Person            // true, the instance also has a constructor property
 ```
 
+Attention, not all functions have prototype property. The arrow function (const f1 = () => {})
+ does not have prototype. And same to methods of class, bound functions.
+
 ### Object.create vs `new`
 They both create object but the `Object.create` won't call the constructor of the prototype
  while the `new` will.
