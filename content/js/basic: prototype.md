@@ -1,6 +1,6 @@
-<!---
+```metadata
 tags: js, node, prototype
--->
+```
 
 ## Javascript prototype
 
