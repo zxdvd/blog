@@ -70,7 +70,7 @@ tags: linux, shell, apt
 
 #### show dependencies of a package
 
-    dpkg$ 
+    dpkg$
     rpm$ rpm -qR make
     rpm$ rpm -qR -p golang.rpm                 # show dependencies of a downloaded package
 
