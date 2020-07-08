@@ -1,5 +1,5 @@
 ```metadata
-tags: c, memory model
+tags: c, memory, memory model
 ```
 
 ## C memory model
