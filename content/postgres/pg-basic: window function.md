@@ -77,8 +77,8 @@ postgres@localhost:test> select id,product_id,sale_id,amount
 ```
 
 ### order by and rank
-Sometimes we need to rank in each partition. And for rank, `order by` is a must. Postgres provides 
-several functions for rank. See following example:
+Sometimes we need to rank in each partition. And for rank, `order by` is a must-have. Postgres provides
+ several functions for rank. See following example:
 
 ```sql
 postgres@localhost:test> select id,amount
@@ -145,8 +145,8 @@ methods:
     unbounded preceding              means START of the partition inclusive
     unbounded following              means end of the partition inclusive
     current row                      means the current row computed inclusive
-    N preceding                      means N rows before the current row inclusive
-    N following                      means N rows after the current row inclusive
+    N preceding                      means N rows/range/groups before the current row inclusive
+    N following                      means N rows/range/groups after the current row inclusive
 
 So the window `w2 as (order by id rows unbounded preceding)` defines a frame that from the start 
 of the partition to current row (end will be current row if omitted).
@@ -208,7 +208,7 @@ Then a simple summary:
     frame unaware window functions:
         row_number, rank, dense_rank
 
-### frame mode: rows and range
+### frame mode: rows, range, groups
 You can define window frame like `rows between XXX` or `range between XXX`. So what's 
 the difference of rows mode and range mode?
 
@@ -220,48 +220,62 @@ The consecutive rows in the partition that have same user_id are peers. Thus `3,
 In rows mode, the start and end of frame are defined at rows precision. They are either 
 start of partition or end of partition, or +/- N rows of current row.
 
-However, in range mode, you first get this start/end point. Then they are **expanded** to 
-include **peers** of the start/end point. See following example:
+For range mode, it has following differences:
+
+- the start and end are **expanded** to include **peers**
+- the N of `N preceding` and `N following` means value that is same type as the `order by`
+
+See following example:
 
 ```sql
 postgres@localhost:test> select id,amount
-                ,count(*) over w1 as count_w1, sum(amount) over w1 as sum_w1
-                ,count(*) over w2 as count_w2, sum(amount) over w2 as sum_w2
-            from test."order"
-            window w1 as (order by amount)
-                  ,w2 as (w1 rows unbounded preceding);
-+------+----------+------------+----------+------------+----------+
-| id   | amount   | count_w1   | sum_w1   | count_w2   | sum_w2   |
-|------+----------+------------+----------+------------+----------|
-| 6    | 5000     | 1          | 5000     | 1          | 5000     |  1 2 4 8 9
-| 7    | 7000     | 2          | 12000    | 2          | 12000    |    2 4 8 9
-| 3    | 7500     | 4          | 27000    | 3          | 19500    |      4 8 9
-| 8    | 7500     | 4          | 27000    | 4          | 27000    |      4 8 9
-| 1    | 8000     | 8          | 59000    | 5          | 35000    |        8 9
-| 4    | 8000     | 8          | 59000    | 6          | 43000    |        8 9
-| 2    | 8000     | 8          | 59000    | 7          | 51000    |        8 9
-| 9    | 8000     | 8          | 59000    | 8          | 59000    |        8 9
-| 5    | 9000     | 9          | 68000    | 9          | 68000    |          9
-+------+----------+------------+----------+------------+----------+
+                  ,count(*) over w1 as count_w1
+                  ,count(*) over w2 as count_w2
+                  ,count(*) over w3 as count_w3
+              from test."order"
+              window
+                   w1 as (order by amount range 10 preceding)
+                  ,w2 as (order by amount range between 1000 preceding and current row )
+                  ,w3 as (order by amount rows between current row and 2 following);
++------+----------+------------+------------+------------+
+| id   | amount   | count_w1   | count_w2   | count_w3   |
+|------+----------+------------+------------+------------|
+| 6    | 5000     | 1          | 1          | 3          |
+| 7    | 7000     | 1          | 1          | 3          |
+| 3    | 7500     | 2          | 3          | 3          |
+| 8    | 7500     | 2          | 3          | 3          |
+| 1    | 8000     | 4          | 7          | 3          |
+| 4    | 8000     | 4          | 7          | 3          |
+| 2    | 8000     | 4          | 7          | 3          |
+| 9    | 8000     | 4          | 7          | 2          |
+| 5    | 9000     | 1          | 5          | 1          |
++------+----------+------------+------------+------------+
 ```
 
-Since range mode is the default mode, w1 equals `w1 as (order by amount range unbounded preceding)`.
-Then w1 is range mode while w2 is rows mode. For first two rows, the count and sum of w1 and w2 
-are same.
+The frame of `count_w3` is current row and following two rows. So for the last row, the count
+ is 1 since it has no following rows. And for second last, the result is 2. For all others,
+ the result is 3 since they all have at least two following rows.
 
-When current row is the third row (id=3), for rows mode, count_w2 and sum_w2 are normal. However, 
-the frame expanded to the forth row since the third row and forth row are peer (both have amount 7500).
-Then the count_w1 is 4 and sum_w1 is 27000=5000+7000+7500+7500.
+The `count_w1` counts rows that `amount` is between `[current_amount-10, current_amount]` inclusive.
+So for `amount` 5000, 7000, 9000 the result is 1 since they only have themself in this range. For
+ `amount` 7200, since range mode will expand `peers`, then for id 3 and 8, the result is 2.
 
-Same story came for the fifth row to eighth row.
+Same as `count_w1`, the `count_w1` counts rows that `amount` is between
+ `[current_amount-1000, current_amount]` inclusive. Then for id 3 and 8, the result is 3 since
+ amount 7000 is included. And for amount 8000, the result is 7 since 7500 in included.
 
-So why range mode? Since rows in peer are same. Then their order are not determined. For above eample, 
+So why range mode? Since rows in peer are same. Then their order are not determined. For above example,
 it means that id=3 may be the third row but id=8 can also be third row. Then for id=3 and id=8, the 
 count may be 3 or 4. The result is not determined. This is same to other window function. You may not 
 want this. We hate uncertainness.
 
 To avoid this uncertainness, we can use range mode. Or we can eliminate the peer via using unique columns 
 in the `order by clause`, e.g., `order by amount, id`, since id is unique.
+
+#### groups
+From postgres 11, it supports a new frame mode: `groups`. It likes a combination of `rows` and `range`.
+It will expand `peers` just like `range`. And the N in `N preceding/following` means number of `peers`
+ before and after current row.
 
 I exported the small table used above to a csv. You can download it from [here](./misc/order-small.csv).
 
