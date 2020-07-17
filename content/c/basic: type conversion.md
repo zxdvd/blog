@@ -62,6 +62,20 @@ These rules works for following operators:
 - comparing operators: ==, !=, >, <, >=, <=
 - bitwise operators: &, |, ^
 
+### arithmetic calculation and conversion
+How does C deal with integer overflow? For example, a small unsigned int substracts from a
+ large one and got a negative integer, or two integer multiples and got a very large integer.
+
+#### unsigned int overflow
+Actually, operations on unsigned int never overflow. The result will be modulo to fit in
+ proper range. For example, `(uint8)1 - (uint8)2 = -1 % 2^8 = 255`,
+ `(uint8)10 - (uint8)30 = 300 % 2^8 = 44`.
+
+#### int overflow
+However, `int overflow` will get undefined behavior and you must avoid it. You can convert
+ it to a large enough type like int32, int64 or float.
+
 ### references
 - [c spec: ISO/IEC 9899](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1124.pdf)
 - [o'reilly: C in a nutshell](https://www.oreilly.com/library/view/c-in-a/0596006977/ch04.html)
+- [wikipedia: integer overflow](https://en.wikipedia.org/wiki/Integer_overflow)
