@@ -149,3 +149,4 @@ Then it uses counter for memory used and lazyfree objects.
 - [gcc doc: gcc memory model](https://gcc.gnu.org/wiki/Atomic/GCCMM/AtomicSync)
 - [cpp reference: std::memory_order](https://en.cppreference.com/w/cpp/atomic/memory_order)
 - [cpp reference: C11 memory order](https://en.cppreference.com/w/c/atomic/memory_order)
+- [postgres source code: Memory Barriers](https://github.com/postgres/postgres/blob/master/src/backend/storage/lmgr/README.barrier)
