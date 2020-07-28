@@ -45,5 +45,14 @@ Most time, the default `Lax` is enough for you, so you needn't to do anything. B
 
 And if you want to set to `None`, remember that it needs the `Secure` attribute.
 
+### iframe
+If you have a `top.com` and it has an iframe `embedded.com`, you may find that the `embedded.com`
+ cannot get or set cookie. `document.cookie` always return empty string and you won't get
+ error when setting cookie but it just does nothing.
+
+You need to set `SameSite=None; Secure` while setting cookie for `embedded.com`, then it
+ can be read in cross site context.
+
 ### references
 - [web.dev: samesite cookies explained](https://web.dev/samesite-cookies-explained/)
+- [chrome issues: document.cookie is not working inside iframe](https://bugs.chromium.org/p/chromium/issues/detail?id=1062162)
