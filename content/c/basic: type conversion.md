@@ -58,9 +58,9 @@ The section 6.3.1.8 of the spec defines rules about this. To sum up
 
 These rules works for following operators:
 
-- arithmetic operators: *, /, %, +, -
-- comparing operators: ==, !=, >, <, >=, <=
-- bitwise operators: &, |, ^
+    - arithmetic operators: *, /, %, +, -
+    - comparing operators: ==, !=, >, <, >=, <=
+    - bitwise operators: &, |, ^
 
 ### arithmetic calculation and conversion
 How does C deal with integer overflow? For example, a small unsigned int substracts from a
@@ -69,7 +69,7 @@ How does C deal with integer overflow? For example, a small unsigned int substra
 #### unsigned int overflow
 Actually, operations on unsigned int never overflow. The result will be modulo to fit in
  proper range. For example, `(uint8)1 - (uint8)2 = -1 % 2^8 = 255`,
- `(uint8)10 - (uint8)30 = 300 % 2^8 = 44`.
+ `(uint8)10 * (uint8)30 = 300 % 2^8 = 44`.
 
 #### int overflow
 However, `int overflow` will get undefined behavior and you must avoid it. You can convert

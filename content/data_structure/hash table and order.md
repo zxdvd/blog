@@ -1,10 +1,10 @@
 ```metadata
-tags: data-structure, hash
+tags: data-structure, hash table
 ```
 
-## hash and order
+## hash table and order
 
-I've interviewed a lot of people recently for a frontend position. I won't ask use
+I've interviewed a lot of people recently for a frontend position. I won't ask about
  complex algorithms like rbtree or MST to test coding skill. I'd choose a simple
  question:
 
@@ -19,49 +19,45 @@ function dedup(sortedArray) {
 ```
 
 In this article, I won't talk about the better O(n) solution for this. I'll talk
- about hash, map and set.
+ about order of hash, map and set.
 
 For above code, we know that `Set`, `Map` or `object` could be used to deduplicate
- keys since key of them are unique.
+ keys since keys in them are unique.
 
 However, is the array converted from `Set` ordered? And why?
 
-To answer this question, we need to the underground data structure of `Set`, `Map`
- and `object`.
+From article [hash table](./hash table.md) we know that `Map` and `Set` are implemented
+ using hash table mostly. And keys are converted to array index via hashing and modulus.
+So that the order of elements in array has nothing to do with the order of keys themselves
+ or inserting order.
 
-### hash table
-The `Set`, `Map` or `Dict` are common data structures in most languages. The hash
- table is used in most implementations. And it has following advantages:
+Then can we conclude that iterating order of `Map` and `Set` is undetermined?
 
-- O(1) for get, set, add and delete.
-- key or member is unique.
+However, let's see following two examples: python example and js example that convert
+ array to set and then to array.
 
-#### how
-We know that get and set or array by index is O(1) since each element in array is
- fixed size.
-
+``` python
+>>> list(set([1,2,3,4]))
+[1, 2, 3, 4]
+>>> list(set([4,3,2,1]))
+[1, 2, 3, 4]
 ```
-    | 0 | 1 | .... | i |i+1|i+2|....
+
+According the python example, it seems that the origin order of the list doesn't matter.
+ 
+
+```js
+> [...new Set([1,2,3,4])]
+[ 1, 2, 3, 4 ]
+> [...new Set([4,3,2,1])]
+[ 4, 3, 2, 1 ]
 ```
 
-Hash table use array internally to store key value pairs. When you get or set via
- key, it uses a hash function that convert the key to integer and then do modular
- with array length to get the bucket of the key.
 
-However, different keys may go to same bucket if they got same hash result or same
- modular result. Then how to deal with this?
 
-Generally, there are open address hash table and linked hash table. The open address
- hash address will try to find another bucket if current one is used while the linked
- hash table will use a linked list to store all key value pairs hashed into same bucket.
 
-Following picture shows the linked hash table.
 
-![hash bucket](./images/hash-1.png)
 
-Then we can find a insteresting result:
-
-    the inserting order doesn't effect order too much, it's the hash method does
 
 ### ordered hash table
 Iterating a hash table is just go throuth the underground array from beginning. Let's
