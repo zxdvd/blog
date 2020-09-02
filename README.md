@@ -25,6 +25,7 @@
 * [fs / go through the read syscall](./content/os/fs/go%20through%20the%20read%20syscall.md)
 * [os / ipc: share memory](./content/os/ipc%3A%20share%20memory.md)
 * [memory / from free to meminfo](./content/os/memory/from%20free%20to%20meminfo.md)
+* [memory / kernel: memory zones](./content/os/memory/kernel%3A%20memory%20zones.md)
 * [memory / proc meminfo explaination](./content/os/memory/proc%20meminfo%20explaination.md)
 * [os / memory: memory mapping](./content/os/memory%3A%20memory%20mapping.md)
 * [os / tcp: socket options](./content/os/tcp%3A%20socket%20options.md)

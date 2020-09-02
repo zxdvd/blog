@@ -10,6 +10,10 @@ By default it is not enabled, to enable it, you need node >= v12 and either of t
 - files ending in `.mjs`
 - files ending in `.js` and the `type` field of nearest parent package.json equals `module`
 
+Attention
+
+    es6 module doesn't support json, doesn't guess extensions, doesn't expand directory
+
 ### dynamic module
 For es6 module, you cannot wrap `import` in a `try catch` like `common.js`.
 

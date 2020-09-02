@@ -18,9 +18,6 @@ function dedup(sortedArray) {
 }
 ```
 
-In this article, I won't talk about the better O(n) solution for this. I'll talk
- about order of hash, map and set.
-
 For above code, we know that `Set`, `Map` or `object` could be used to deduplicate
  keys since keys in them are unique.
 
@@ -44,7 +41,6 @@ However, let's see following two examples: python example and js example that co
 ```
 
 According the python example, it seems that the origin order of the list doesn't matter.
- 
 
 ```js
 > [...new Set([1,2,3,4])]
@@ -53,11 +49,8 @@ According the python example, it seems that the origin order of the list doesn't
 [ 4, 3, 2, 1 ]
 ```
 
-
-
-
-
-
+The js example seems different from python's. It keeps the inserting order. So why? Should
+ it behavior as python according to hash table features?
 
 ### ordered hash table
 Iterating a hash table is just go throuth the underground array from beginning. Let's
@@ -74,8 +67,8 @@ Some languages use the ordered hash table for some data structures. Python uses 
 
 So what is ordered hash table?
 
-Ordered hash table will store each key value pairs in inserted order so that iterating
- result is stable and ordered.
+    Ordered hash table will store each key value pairs in inserted order so that iterating
+    result is stable and ordered.
 
 #### how
 There are different implementations for ordered hash table. The main idea is splitting
@@ -89,7 +82,7 @@ Insert steps of the python implementation:
 
 Search steps of the python implementation:
 
-- calculate hash bucket and get the index M
+- calculate hash and got bucket N, read its value as M
 - get the key value pairs in Mth element of the data array
 
 With this method, elements in data array are kept as inserting order.
