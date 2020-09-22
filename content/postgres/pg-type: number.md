@@ -1,6 +1,6 @@
-<!---
+```metadata
 tags: postgres, pg type, number
--->
+```
 
 ### float precision problem
 Many languages have following similar problems (I've tested with js and python).

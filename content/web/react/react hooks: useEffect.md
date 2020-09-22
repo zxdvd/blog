@@ -1,6 +1,7 @@
 ```metadata
 tags: web, frontend, react, react-hooks
 ```
+
 ## react hooks: useEffect
 The `useEffect` hook is used to achieve side effect when the dependent state or props
  changed. It likes the `componentDidMount` and `componentDidUpdate` of the class style.
