@@ -64,7 +64,7 @@ Module._extensions['.js'] = function(module, filename) {
 
 The `pirates` chooses to monkey patch the `.js` loader and the `_compile` method. It
  gets the content and applies the hook to change the content and then calls the origin
- _compile.
+ `_compile`.
 
 Following is the core part of `pirates` to add a hook.
 
