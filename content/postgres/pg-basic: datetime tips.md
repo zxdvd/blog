@@ -26,7 +26,7 @@ If you want to get end of day, you may try to convert it to `begin of next day m
 This may not be accurate considering about time like `23:59:59.999`. Then you can
  change your query a little to avoid the `- interval '1 sec'`. If your query is
  `select * from t where created_at <= END_OF_DAY`, you may convert it to
- `select * from t where created_at < BEGIN_OF_DAY` so that no need to get end of day.
+ `select * from t where created_at < BEGIN_OF_NEXT_DAY` so that no need to get end of day.
 
 ### now(), statement_timestamp(), clock_timestamp()
 Let's see a example first. It will print current time, sleep few seconds and print it again.
