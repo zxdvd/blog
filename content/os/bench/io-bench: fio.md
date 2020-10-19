@@ -32,7 +32,7 @@ Systemcalls used for the IO test, default `psync`. Support following types:
     - mmap: mmap IO
     - rdma
 
-    It supports many other types but not frequenctly used, so I don't list them all.
+    It supports many other types but not frequently used, so I don't list them all.
 
 ### filename
 If you have multiple disks. You can use filename to specify a disk, like
@@ -66,5 +66,5 @@ numjobs=2
 Then you can execute it using `fio fio.cfg`. You can choose only one job to run using
  `fio --section=job2 fio.cfg`.
 
-### references:
+### references
 - [fio official doc](https://fio.readthedocs.io/en/latest/fio_doc.html)
