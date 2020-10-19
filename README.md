@@ -8,6 +8,7 @@
 * [c / c-macro: multiple statements](./content/c/c-macro%3A%20multiple%20statements.md)
 * [c / debug: address sanitizer](./content/c/debug%3A%20address%20sanitizer.md)
 * [c / memory model](./content/c/memory%20model.md)
+* [data_structure / bitmap compression and roaring bitmap](./content/data_structure/bitmap%20compression%20and%20roaring%20bitmap.md)
 * [data_structure / geohash introduction](./content/data_structure/geohash%20introduction.md)
 * [data_structure / hash table and order](./content/data_structure/hash%20table%20and%20order.md)
 * [data_structure / hash table](./content/data_structure/hash%20table.md)
