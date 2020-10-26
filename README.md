@@ -1,6 +1,7 @@
 
 ### Notes
 
+* [basic / unicode: characters](./content/basic/unicode%3A%20characters.md)
 * [c / basic: extern C and name mangling](./content/c/basic%3A%20extern%20C%20and%20name%20mangling.md)
 * [c / basic: initialization](./content/c/basic%3A%20initialization.md)
 * [c / basic: type conversion](./content/c/basic%3A%20type%20conversion.md)
@@ -44,6 +45,7 @@
 * [postgres / db: redo log](./content/postgres/db%3A%20redo%20log.md)
 * [postgres / mysql-note](./content/postgres/mysql-note.md)
 * [postgres / pg-basic: SRF function join type](./content/postgres/pg-basic%3A%20SRF%20function%20join%20type.md)
+* [postgres / pg-basic: create index](./content/postgres/pg-basic%3A%20create%20index.md)
 * [postgres / pg-basic: crosstab](./content/postgres/pg-basic%3A%20crosstab.md)
 * [postgres / pg-basic: datetime tips](./content/postgres/pg-basic%3A%20datetime%20tips.md)
 * [postgres / pg-basic: encoding, collate, ctype](./content/postgres/pg-basic%3A%20encoding%2C%20collate%2C%20ctype.md)
