@@ -22,6 +22,7 @@
 * [js / basic: encodeURI vs encodeURIComponent](./content/js/basic%3A%20encodeURI%20vs%20encodeURIComponent.md)
 * [js / basic: es6 module](./content/js/basic%3A%20es6%20module.md)
 * [js / basic: prototype](./content/js/basic%3A%20prototype.md)
+* [js / basic: string, bytes, unicode conversion](./content/js/basic%3A%20string%2C%20bytes%2C%20unicode%20conversion.md)
 * [js / node: bytecode](./content/js/node%3A%20bytecode.md)
 * [js / node: require hook](./content/js/node%3A%20require%20hook.md)
 * [nginx / basic: next upstream](./content/nginx/basic%3A%20next%20upstream.md)
