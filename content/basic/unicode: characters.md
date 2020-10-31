@@ -72,9 +72,24 @@ It's common to use space as separator. However, unicode has many different space
 It depends on you to decide whether considers other whitespaces or not, but we'd better know
  them.
 
+Some programming languages provide methods to deal with this, for example, `unicode.IsSpace`
+ in golang.
+
+### combining characters
+Unicode contains many combining characters. You can use it together with other base characters
+ to get composed characters. For example, `e +  ̀ =  è`.
+
+However, it seems that many composed characters (I'm not sure whether all of them) are also
+ contained in unicode as a single uniocde code point. For example, `\u00e8` is `è`.
+
+It seems that a character may have multiple representations in unicode. Then this may lead to
+ problems like `'e\u0300' === 'è'` got false. To deal with this problem, may programming languages
+ support normalization method for string that it will convert the composed characters to its
+ standalone representation. Then `'e\u0300'.normalize() !== 'è'` got true.
 
 ### references
 1. [wikipedia: list of unicode characters](https://en.wikipedia.org/wiki/List_of_Unicode_characters)
 2. [wikipedia: unicode control characters](https://en.wikipedia.org/wiki/Unicode_control_characters)
 3. [stackoverflow: Chinese character range](https://stackoverflow.com/questions/1366068/whats-the-complete-range-for-chinese-characters-in-unicode)
 4. [unicode: space category](https://www.fileformat.info/info/unicode/category/Zs/list.htm)
+5. [wikipedia: combining character](https://en.wikipedia.org/wiki/Combining_character)

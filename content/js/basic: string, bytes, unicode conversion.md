@@ -41,6 +41,14 @@ hex to int
 
 ### string and code points
 
+Attention first:
+
+    The `str.length` is length of unicode code units, equals to `byte-length/2`.
+    It's not unicode character length. For example:
+        console.log('🙂'.length)         // got 2
+
+    In javascript, `s[i]` will the get i-th unicode code unit but not i-th character. While it's the i-th character in python.
+
 string to code points
 
     const s1 = '123𠮷我们abc𠄎@@'
