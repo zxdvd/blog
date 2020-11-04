@@ -72,6 +72,7 @@ The Euler's Theorem is `a^φ(n) mod n = 1` while n is a positive integer and a a
     If n is prime number, φ(n) = n-1.
 
 Then
+
     Suppose B = k * φ(C) + n
     A^B mod C = A^(k * φ(C) + n) mod C
               = A^(φ(C) * k) * A^n mod C

@@ -1,6 +1,7 @@
 
 ### Notes
 
+* [algorithm / crypto: diffie-hellman-key-exchange](./content/algorithm/crypto%3A%20diffie-hellman-key-exchange.md)
 * [algorithm / math: fast modular exponentiation](./content/algorithm/math%3A%20fast%20modular%20exponentiation.md)
 * [basic / unicode encoding: utf16 and utf8](./content/basic/unicode%20encoding%3A%20utf16%20and%20utf8.md)
 * [basic / unicode: characters](./content/basic/unicode%3A%20characters.md)
