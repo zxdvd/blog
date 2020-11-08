@@ -5,6 +5,7 @@
 * [algorithm / crypto: diffie-hellman-key-exchange](./content/algorithm/crypto%3A%20diffie-hellman-key-exchange.md)
 * [algorithm / crypto: elliptic curve crypto (ECC)](./content/algorithm/crypto%3A%20elliptic%20curve%20crypto%20%28ECC%29.md)
 * [algorithm / math: fast modular exponentiation](./content/algorithm/math%3A%20fast%20modular%20exponentiation.md)
+* [algorithm / sample: algorithm S](./content/algorithm/sample%3A%20algorithm%20S.md)
 * [basic / unicode encoding: utf16 and utf8](./content/basic/unicode%20encoding%3A%20utf16%20and%20utf8.md)
 * [basic / unicode: characters](./content/basic/unicode%3A%20characters.md)
 * [c / basic: extern C and name mangling](./content/c/basic%3A%20extern%20C%20and%20name%20mangling.md)
