@@ -1,6 +1,6 @@
-<!---
+```metadata
 tags: database, postgres, config
--->
+```
 
 ## postgres: search path of schema
 

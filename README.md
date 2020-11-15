@@ -64,6 +64,7 @@
 * [postgres / pg-basic: upsert](./content/postgres/pg-basic%3A%20upsert.md)
 * [postgres / pg-basic: window function](./content/postgres/pg-basic%3A%20window%20function.md)
 * [postgres / pg-basic: 表名字段名是大小写问题](./content/postgres/pg-basic%3A%20%E8%A1%A8%E5%90%8D%E5%AD%97%E6%AE%B5%E5%90%8D%E6%98%AF%E5%A4%A7%E5%B0%8F%E5%86%99%E9%97%AE%E9%A2%98.md)
+* [postgres / pg-config: pg_hba.conf](./content/postgres/pg-config%3A%20pg_hba.conf.md)
 * [postgres / pg-config: search path](./content/postgres/pg-config%3A%20search%20path.md)
 * [postgres / pg-internal: gist index](./content/postgres/pg-internal%3A%20gist%20index.md)
 * [postgres / pg-internal: mvcc](./content/postgres/pg-internal%3A%20mvcc.md)

@@ -135,11 +135,11 @@ postgres@localhost:test> select id,amount
 +------+----------+------------+----------+------------+----------+------------+----------+
 ```
 
-Now I'll explain the result. The `count_w1` and `sum_w1` columns are normal window aggregation 
-like those in above section.
+Now I'll explain the result. The `count_w1` and `sum_w1` columns are normal window aggregation
+ like those in above section.
 
-The next 4 columns are aggregated on different frames. A frame is a consecutive subset within a 
-partition. A frame has start and end. You can define the start or end point using following 
+The next 4 columns are aggregated on different frames. A frame is a consecutive subset within a
+ partition. A frame has start and end. You can define the start or end point using following
 methods:
 
     unbounded preceding              means START of the partition inclusive
@@ -217,8 +217,8 @@ Before answer this, I need to explain a word `peer`. Suppose a window define as
 The consecutive rows in the partition that have same user_id are peers. Thus `3,3`, 
 `7,7,7` and `11,11` are peers.
 
-In rows mode, the start and end of frame are defined at rows precision. They are either 
-start of partition or end of partition, or +/- N rows of current row.
+In rows mode, the start and end of frame are defined at rows precision. They are either
+ start of partition or end of partition, or +/- N rows of current row.
 
 For range mode, it has following differences:
 
