@@ -98,7 +98,7 @@ For encodings with code unit more than 1 byte, like UTF16 and UTF32, the byte or
 ```
 
 ### BOM (byte order mark)
-For UTF16 and UTF32, you may get problems when communcating among machines that mixed
+For UTF16 and UTF32, you may get problems when communicating among machines that mixed
  with little endian and big endian. BOM is used to deal with this.
 
 BOM is a fixed bytes at the beginning of file or stream that is used to hint the endian.

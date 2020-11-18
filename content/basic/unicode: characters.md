@@ -75,6 +75,26 @@ It depends on you to decide whether considers other whitespaces or not, but we'd
 Some programming languages provide methods to deal with this, for example, `unicode.IsSpace`
  in golang.
 
+### halfwidth and fullwidth
+Some characters have halfwidth and fullwidth variants. Like following:
+
+    fullwidth: ａｂｃｄＡＢＣＤ０１２３４！＂＃＄
+    halfwidth: abcdABCD01234!"#$
+
+It's easy to see the differences. Though halfwidth is mostly common used, user may input
+ characters mixed with fullwidth ocasionally.
+
+For inputs like phone number or email, it's better to convert fullwidth to halfwidth or
+ reject fullwidth. The range of fullwidth characters is `\uFF00-\uFFFF`. Range `\uFF01-FF5E`
+ maps ASCII character range `\u0021-\u007E`. Then you can convert the most commonly used
+ like following:
+
+```js
+    const _FULL_WIDTH_GAP = 'Ａ'.charCodeAt(0) - 'A'.charCodeAt(0)
+    const charToHalf = c => String.fromCharCode(c.charCodeAt(0) - _FULL_WIDTH_GAP)
+    const toHalfWidth = s => s.replace(/[\uFF01-\uFF5e]/g, charToHalf)
+```
+
 ### combining characters
 Unicode contains many combining characters. You can use it together with other base characters
  to get composed characters. For example, `e +  ̀ =  è`.
