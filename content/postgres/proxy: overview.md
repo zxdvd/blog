@@ -48,6 +48,23 @@ Some ORMs or database drivers have built-in connection pool. An external connect
  processes though many are idle. With one or more external pools, you only have 4000
  connections to the external pools with much fewer shared postgres backends.
 
+#### connection pool mode
+The connection pool may support many mode, the most common are `session` and `transaction`.
+ The `session` pool mode means that a client always hold the same postgres backend until
+ it disconnected. Other clients cannot use it even it is idle. The backend session is
+ returned to the pool when the client disconnected and then it can be used by another
+ client. And often a `DISCARD ALL` is issued to reset the session.
+
+The `transaction` pool mode means that the client only hold the session till end of the
+ transaction. Another client can use the same session when the transaction ended. By
+ this way backend sessions are more busy and you may need few backend sessions. But
+ session settings are shared between different clients and it may lead to problems.
+ Of course, you can issue `DISCARD ALL` or other commands to reset the session, but
+ reset too often may affect performance a lot.
+
+I think `session` mode is always suggested. You can try `transaction` mode to achieve
+ better performance if you don't have client specific session settings.
+
 ### read/write splitting
 For very large scale applications that reading is far more than writing, read/write
  splitting can improve performance dramatically, especially for cases that don't need
