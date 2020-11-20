@@ -82,6 +82,7 @@
 * [postgres / pg-type: number](./content/postgres/pg-type%3A%20number.md)
 * [postgres / pg12: with CTE and materialize](./content/postgres/pg12%3A%20with%20CTE%20and%20materialize.md)
 * [postgres / pg: vscode remote debug](./content/postgres/pg%3A%20vscode%20remote%20debug.md)
+* [postgres / proxy: odyssey](./content/postgres/proxy%3A%20odyssey.md)
 * [postgres / proxy: overview](./content/postgres/proxy%3A%20overview.md)
 * [postgres / proxy: pgbouncer](./content/postgres/proxy%3A%20pgbouncer.md)
 * [sourcecode / lock: lwlock part 1](./content/postgres/sourcecode/lock%3A%20lwlock%20part%201.md)
