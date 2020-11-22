@@ -1,7 +1,6 @@
-<!---
+```metadata
 tags: postgres, procedure, trigger
--->
-
+```
 
 ### temporary disable trigger
 Sometimes you may want to disable triggers temporarily, e.g., when bulk inserting or 

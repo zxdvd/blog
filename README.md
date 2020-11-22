@@ -72,6 +72,7 @@
 * [postgres / pg-internal: mvcc](./content/postgres/pg-internal%3A%20mvcc.md)
 * [postgres / pg-internal: transaction id](./content/postgres/pg-internal%3A%20transaction%20id.md)
 * [postgres / pg-internal: transaction snapshot](./content/postgres/pg-internal%3A%20transaction%20snapshot.md)
+* [postgres / pg-procedure: event trigger](./content/postgres/pg-procedure%3A%20event%20trigger.md)
 * [postgres / pg-procedure: examples](./content/postgres/pg-procedure%3A%20examples.md)
 * [postgres / pg-procedure: plv8](./content/postgres/pg-procedure%3A%20plv8.md)
 * [postgres / pg-procedure: trigger](./content/postgres/pg-procedure%3A%20trigger.md)
