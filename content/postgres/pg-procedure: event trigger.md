@@ -28,6 +28,7 @@ Let's add a simple event trigger to print all DDLs.
 create function log_ddl() returns event_trigger as $$
 begin
     raise info 'ddl: user: %', session_user || ', tag: ' || tg_tag || ', query: ' || current_query();
+    insert into test_log_ddl values (now(), tg_tag, current_query());
 end $$ language plpgsql;
 
 create event trigger et_log_ddl on ddl_command_start execute procedure log_ddl();
