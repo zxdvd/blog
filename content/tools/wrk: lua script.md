@@ -1,6 +1,6 @@
-<!---
+```metadata
 tags: wrk, benchmark, lua
--->
+```
 
 `wrk` is a high performance http benchmark tool written with C. It uses the same
  even module as redis. A simple example test is like following:

@@ -1,5 +1,5 @@
 ```metadata
-tags: postgres, procedure, trigger
+tags: postgres, procedure, replication, trigger
 ```
 
 ## replica: sync DDL for logical replication
