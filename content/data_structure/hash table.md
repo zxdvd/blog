@@ -1,5 +1,5 @@
 ```metadata
-tags: data-structure, hash table
+tags: data-structure, hashmap
 ```
 
 ## hash table
