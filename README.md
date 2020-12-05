@@ -28,6 +28,7 @@
 * [go / perf: reduce allocation from 7 to 1](./content/go/perf%3A%20reduce%20allocation%20from%207%20to%201.md)
 * [sourcecode / runtime: map part1](./content/go/sourcecode/runtime%3A%20map%20part1.md)
 * [sourcecode / runtime: map part2 - get and set](./content/go/sourcecode/runtime%3A%20map%20part2%20-%20get%20and%20set.md)
+* [sourcecode / runtime: map part3 - growing](./content/go/sourcecode/runtime%3A%20map%20part3%20-%20growing.md)
 * [js / basic: corners](./content/js/basic%3A%20corners.md)
 * [js / basic: encodeURI vs encodeURIComponent](./content/js/basic%3A%20encodeURI%20vs%20encodeURIComponent.md)
 * [js / basic: es6 module](./content/js/basic%3A%20es6%20module.md)
