@@ -23,6 +23,7 @@
 * [devops / docker: dockerfile tips](./content/devops/docker%3A%20dockerfile%20tips.md)
 * [devops / docker: multi-stage build](./content/devops/docker%3A%20multi-stage%20build.md)
 * [go / basic: bytes, string and runes](./content/go/basic%3A%20bytes%2C%20string%20and%20runes.md)
+* [go / basic: map](./content/go/basic%3A%20map.md)
 * [go / go-slice](./content/go/go-slice.md)
 * [go / go-vet](./content/go/go-vet.md)
 * [go / perf: reduce allocation from 7 to 1](./content/go/perf%3A%20reduce%20allocation%20from%207%20to%201.md)
