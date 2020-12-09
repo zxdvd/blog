@@ -91,6 +91,7 @@
 * [postgres / proxy: overview](./content/postgres/proxy%3A%20overview.md)
 * [postgres / proxy: pgbouncer](./content/postgres/proxy%3A%20pgbouncer.md)
 * [postgres / replica: publication and subscription](./content/postgres/replica%3A%20publication%20and%20subscription.md)
+* [postgres / replica: pubsub - automatically sync new tables](./content/postgres/replica%3A%20pubsub%20-%20automatically%20sync%20new%20tables.md)
 * [postgres / replica: sync DDL for logical replication](./content/postgres/replica%3A%20sync%20DDL%20for%20logical%20replication.md)
 * [sourcecode / lock: lwlock part 1](./content/postgres/sourcecode/lock%3A%20lwlock%20part%201.md)
 * [sourcecode / storage: buffer](./content/postgres/sourcecode/storage%3A%20buffer.md)
