@@ -87,6 +87,21 @@ Java has a concurrent skip list: `java.util.concurrent.ConcurrentSkipListMap`. L
  the inserting. Other threads can still use old indexes to find all nodes correctly,
  it may be a little slowly without index.
 
+#### concurrent insert/delete for linked list
+It's easy to insert with CAS instruction. Just prepare a new node with `forward` pointer
+ points to next node. And then use CAS to set previous node's `forward` pointer to this
+ new node.
+
+It's a little complex for deleting. You cannot simply set `forward` pointer to jump the
+ deleted node using CAS. Another thread may occasionally insert a new node after the
+ deleted node. Simply jump the `forward` pointer will make this newly added node also
+ deleted.
+
+One method is inserting a null node as marker after the deleted node first. So that all
+ other threads should not insert before this null node (just loop a while). By this way
+ we can sure no inserting will happen after deleted node. When delete it together with
+ null node using CAS.
+
 ### references
 - [hacknews: the skip list](https://news.ycombinator.com/item?id=1171423)
 - [java: concurrent skip list](https://github.com/openjdk/jdk/blob/master/src/java.base/share/classes/java/util/concurrent/ConcurrentSkipListMap.java)
