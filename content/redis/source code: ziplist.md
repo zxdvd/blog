@@ -1,6 +1,6 @@
-<!---
-tags: redis, ziplist
--->
+```metadata
+tags: redis, sourcecode, ziplist
+```
 
 Ziplist is similar to zipmap with following differences:
 

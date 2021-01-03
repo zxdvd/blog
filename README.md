@@ -121,6 +121,7 @@
 * [redis / source code: key expire](./content/redis/source%20code%3A%20key%20expire.md)
 * [redis / source code: redis object](./content/redis/source%20code%3A%20redis%20object.md)
 * [redis / source code: sds](./content/redis/source%20code%3A%20sds.md)
+* [redis / source code: skiplist](./content/redis/source%20code%3A%20skiplist.md)
 * [redis / source code: tstring](./content/redis/source%20code%3A%20tstring.md)
 * [redis / source code: util functions](./content/redis/source%20code%3A%20util%20functions.md)
 * [redis / source code: ziplist](./content/redis/source%20code%3A%20ziplist.md)
