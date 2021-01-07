@@ -130,6 +130,7 @@
 * [shell / basic: 为啥不建议用ps ef查看进程](./content/shell/basic%3A%20%E4%B8%BA%E5%95%A5%E4%B8%8D%E5%BB%BA%E8%AE%AE%E7%94%A8ps%20ef%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B.md)
 * [shell / command-awk](./content/shell/command-awk.md)
 * [shell / git advance: merge another repo and keep histories](./content/shell/git%20advance%3A%20merge%20another%20repo%20and%20keep%20histories.md)
+* [shell / git tips](./content/shell/git%20tips.md)
 * [shell / package-manage-cheatsheet](./content/shell/package-manage-cheatsheet.md)
 * [shell / ssh config的使用技巧](./content/shell/ssh%20config%E7%9A%84%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7.md)
 * [shell / 生产力: ssh跳板机配置](./content/shell/%E7%94%9F%E4%BA%A7%E5%8A%9B%3A%20ssh%E8%B7%B3%E6%9D%BF%E6%9C%BA%E9%85%8D%E7%BD%AE.md)
