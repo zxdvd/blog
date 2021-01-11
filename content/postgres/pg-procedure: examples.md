@@ -1,10 +1,12 @@
-<!---
+```metadata
 tags: postgres, procedure, plpgsql
--->
+```
 
+## postgres procedure: examples
 
+Some examples about postgres procedure.
 
-## returns only one row
+### returns only one row
 #### return a single value
 
 ``` sql
@@ -77,27 +79,28 @@ Then you can define it using `returns void`
 
 ``` sql
 create or replace function test1() returns void as ...
-``` sql
+```
 
 <br>
 
-## returns multiple rows
+### returns multiple rows
 #### returns multiple rows via `returns table`
-need to use `return query` to select the result when  using plpgsql.
-```
-		create function get_table() returns table (a int, b int) as $$
-		begin
-		        return query select x, x * 2 from generate_series(1, 5) as x;
-		end
-		$$ language plpgsql immutable;
+You need to use `return query` to select the result when  using plpgsql. And be careful,
+ you must not use a same name in both function parameters and table fields.
+
+```sql
+create function get_table() returns table (a int, b int) as $$
+begin
+    return query select x, x * 2 from generate_series(1, 5) as x;
+end $$ language plpgsql immutable;
 ```
 
 Just select the result while using sql language.
 
 ``` sql
-		create function get_table() returns table (a int, b int) as $$
-		        select x, x * 2 from generate_series(1, 5) as x;
-		$$ language sql immutable;
+create function get_table() returns table (a int, b int) as $$
+    select x, x * 2 from generate_series(1, 5) as x;
+$$ language sql immutable;
 ```
 
 #### attention: be care of `return query select`

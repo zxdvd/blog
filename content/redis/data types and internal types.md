@@ -1,18 +1,18 @@
-<!---
+```metadata
 tags: redis, data type
--->
+```
 
 ## redis data types and internal types
 
 We know that redis following main data types:
 
-| outer type         | internal type           |
-| ------------------ | ----------------------- |
-| string             | sds, embedded sds       |
-| list               | quicklist               |
-| set                | intset, dict            |
-| zset (ordered set) | ziplist, skiplist, dict |
-| hash               | ziplist, dict           |
+| outer type         | internal type              |
+| ------------------ | -------------------------- |
+| string             | sds, embedded sds          |
+| list               | quicklist                  |
+| set                | intset / dict              |
+| zset (ordered set) | ziplist / (skiplist, dict) |
+| hash               | ziplist / dict             |
 
 
 Each data type may use one or more internal type to store.

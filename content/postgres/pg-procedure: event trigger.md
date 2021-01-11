@@ -82,12 +82,30 @@ create function log_ddl() returns event_trigger as $$
 declare
     r record;
 begin
+raise info 'ddl trigger: %, query: %', tg_tag, current_query();
 for r in select *  from pg_event_trigger_ddl_commands() t1 loop
-    raise info 'ddl commands: %, %', r.command_tag, r.schema_name;
+    raise info 'subcommand: %, %, %, query:%', r.command_tag, r.schema_name, r.objid::regclass::text, current_query();
 end loop;
 end $$ language plpgsql;
 
 create event trigger et_log_ddl on ddl_command_end execute procedure log_ddl();
+```
+
+Attention about `pg_event_trigger_ddl_commands()`, a simple command may lead to multiple
+ rows since it will use multiple commands internally.
+
+For example, `create table t1(id serial primary key);` will lead to `create sequence`,
+ `create table` and `create index`. The DDL trigger only fires once, you can only get
+ the 3 subcommands in `pg_event_trigger_ddl_commands`.
+
+```sql
+db11=# create table t1 (id serial primary key);
+INFO:  ddl trigger: CREATE TABLE, query: create table t1 (id serial primary key);
+INFO:  subcommand: CREATE SEQUENCE, public, t1_id_seq, query:create table t1 (id serial primary key);
+INFO:  subcommand: CREATE TABLE, public, t1, query:create table t1 (id serial primary key);
+INFO:  subcommand: CREATE INDEX, public, t1_pkey, query:create table t1 (id serial primary key);
+INFO:  subcommand: ALTER SEQUENCE, public, t1_id_seq, query:create table t1 (id serial primary key);
+CREATE TABLE
 ```
 
 #### pg_event_trigger_dropped_objects

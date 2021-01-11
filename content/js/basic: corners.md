@@ -4,6 +4,15 @@ tags: js, node
 
 ## js basic: corners
 
+### syntax
+You need to wrap with `()` while doing object destructure with existed variables:
+
+    let { a } = { a:100 }
+    { a } = { a: 200 }           // syntax error
+    ( { a } = { a: 200 } )       // correct. you need to wrap with ()
+
+#### destructure
+
 ### string
 #### string replace
 Following is syntax of string replace:
@@ -35,7 +44,7 @@ I think the function style is always preferred especially when the replacement s
 ### comparison (Object.is, ===)
 Javascript's `Object.is` is different from python's. For python, `a is b` check whether
  `a` and `b` point to same address while `a == b` does the value compare and it can
- override it for user defined class.
+ be overridden for user defined class.
 
 However, for javascript, `a is b` is similar to `a === b` with trivial differences.
 
@@ -58,6 +67,32 @@ It differs from `===` in folllowing situations
 - `===` treats `NaN` as not equal to `NaN` while `Object.is()` treats them as equal
 
 I prefer to `===` and use `Number.isNaN()` for the `NaN` case.
+
+### check existence of object property
+You may find serveral ways to deal with this, like
+
+```js
+    o && o.key           // if and only if you're sure that it isn't falsy value
+    o && o.key !== undefined       // object may have a key with value `undefined`
+    if ('key' in o) {}
+    o.hasOwnProperty('key')
+
+    ({}).hasOwnProperty.call(o, 'key')
+    Object.prototype.hasOwnProperty.call(o, 'key')
+```
+
+### iterator
+Check [if object is iterable](https://stackoverflow.com/questions/18884249/checking-whether-something-is-iterable):
+
+```js
+function isIterable(obj) {
+    if (obj === null || obj === undefined) {
+    return false
+    }
+    return typeof obj[Symbol.iterator] === 'function'
+}
+```
+
 
 ### references
 - [MDN: string replace](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace)

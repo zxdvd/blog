@@ -1,6 +1,6 @@
-<!---
+```metadata
 tags: c, basic
--->
+```
 
 ## c basic: type conversion
 

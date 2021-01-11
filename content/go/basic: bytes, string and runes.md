@@ -22,7 +22,9 @@ Following are attentions you need to take care about string:
     fmt.Printf("length: %d\n", len(s1))        // get 16 but not 6
 ```
 
-- string is just RO slice, it's no need to be VALID string, you can store any bytes
+- index a string is same like slice, s[i] is the i-th byte but not i-th char.
+
+- string is just read-only slice, it's no need to be VALID string, you can store any bytes
 
 - range loop string will decode string as utf8 and return unicode code points (rune)
 
