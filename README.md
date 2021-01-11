@@ -35,6 +35,7 @@
 * [js / basic: corners](./content/js/basic%3A%20corners.md)
 * [js / basic: encodeURI vs encodeURIComponent](./content/js/basic%3A%20encodeURI%20vs%20encodeURIComponent.md)
 * [js / basic: es6 module](./content/js/basic%3A%20es6%20module.md)
+* [js / basic: eslint custom rules and plugin](./content/js/basic%3A%20eslint%20custom%20rules%20and%20plugin.md)
 * [js / basic: prototype](./content/js/basic%3A%20prototype.md)
 * [js / basic: string, bytes, unicode conversion](./content/js/basic%3A%20string%2C%20bytes%2C%20unicode%20conversion.md)
 * [js / node: bytecode](./content/js/node%3A%20bytecode.md)
