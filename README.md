@@ -32,6 +32,7 @@
 * [sourcecode / runtime: map part1](./content/go/sourcecode/runtime%3A%20map%20part1.md)
 * [sourcecode / runtime: map part2 - get and set](./content/go/sourcecode/runtime%3A%20map%20part2%20-%20get%20and%20set.md)
 * [sourcecode / runtime: map part3 - growing](./content/go/sourcecode/runtime%3A%20map%20part3%20-%20growing.md)
+* [go / test: test cases for cli](./content/go/test%3A%20test%20cases%20for%20cli.md)
 * [js / basic: corners](./content/js/basic%3A%20corners.md)
 * [js / basic: encodeURI vs encodeURIComponent](./content/js/basic%3A%20encodeURI%20vs%20encodeURIComponent.md)
 * [js / basic: es6 module](./content/js/basic%3A%20es6%20module.md)

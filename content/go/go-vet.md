@@ -1,6 +1,8 @@
-<!---
+```metadata
 tags: go, lint
--->
+```
+
+## go vet
 
 The `go vet` is the builtin compile time code checking tool. It likes eslint of js.
 
@@ -29,8 +31,8 @@ prog.go:15: loop variable i captured by func literal
 prog.go:15: loop variable v captured by func literal
 prog.go:18: call of fmt.Printf copies lock value: sync.Mutex
 ```
-It warns you that the result of closure in loop may not be what you want. And `Mutex` 
-cannot be copied.
+It warns you that the result of closure in loop may not be what you want. And `Mutex`
+ cannot be copied.
 
 ### inside
 The `go/src/cmd/vendor/golang.org/x/tools/go/analysis/passes` has a lot of checks, like
