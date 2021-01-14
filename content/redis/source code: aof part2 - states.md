@@ -1,6 +1,6 @@
-<!---
-tags: redis, aof
--->
+```metadata
+tags: redis, sourcecode, aof
+```
 
 ## redis: aof states
 The AOF has a lot of global settings and states and I'll analyze them at this post.

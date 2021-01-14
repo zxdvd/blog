@@ -122,6 +122,7 @@
 * [redis / source code: eventloop](./content/redis/source%20code%3A%20eventloop.md)
 * [redis / source code: evict - LRU and LFU](./content/redis/source%20code%3A%20evict%20-%20LRU%20and%20LFU.md)
 * [redis / source code: expire command](./content/redis/source%20code%3A%20expire%20command.md)
+* [redis / source code: intset](./content/redis/source%20code%3A%20intset.md)
 * [redis / source code: key expire](./content/redis/source%20code%3A%20key%20expire.md)
 * [redis / source code: redis object](./content/redis/source%20code%3A%20redis%20object.md)
 * [redis / source code: sds](./content/redis/source%20code%3A%20sds.md)

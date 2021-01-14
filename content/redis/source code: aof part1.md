@@ -1,6 +1,6 @@
-<!---
-tags: redis, aof
--->
+```metadata
+tags: redis, sourcecode, aof
+```
 
 ## redis aof: command log, buffer and fsync
 
