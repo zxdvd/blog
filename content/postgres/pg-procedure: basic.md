@@ -4,6 +4,11 @@ tags: postgres, procedure, plpgsql
 
 ## postgres procedure: basic
 
+### declare variables
+For plpgsql, you can use variables but you need to declare it at first. And it doesn't
+ support declare variable with pseudo types like `anyelement`, `anyarray`. You'll get
+ compiling error.
+
 ### special variables
 There is a special variable `FOUND` that you can use it to check result of previous
  statement. It is true if any of `SELECT INTO`, `PERORM`, `UPDATE/INSERT/DELETE`,
@@ -91,10 +96,28 @@ A simple `LOOP` statement:
 We can also use `FOR` loop statement:
 
 ```sql
-    FOR counter IN 1..100;         -- for counter in 1..100 by 1;
+    FOR counter IN 1..100         -- for counter in 1..100 by 1 (1 and 100 inclusive);
     LOOP
         -- so something here
     END LOOP;
+```
+
+You can use `FOR IN` to loop an `anyarray` array since you cannot do it with `FOREACH`
+ as you can't declare an element of type `anyelement`:
+
+```sql
+create or replace function test_loop_array(arr1 anyarray) returns void as $$
+declare
+    idx anyelement;
+begin
+    FOR idx IN 1..array_length(arr1, 1)
+    LOOP
+        RAISE INFO 'idx: %, element: %', idx, arr1[idx];
+    END LOOP;
+end $$ language plpgsql;
+
+select test_loop_array(ARRAY[20,30,40]);
+select test_loop_array(ARRAY['a', 'b', 'c']);
 ```
 
 It's easy to loop a query result via `FOR x IN QUERY`:
@@ -123,6 +146,10 @@ The `FOREACH x IN ARRAY` is used to loop an array:
         RAISE INFO 'row: %', el;
     END LOOP;
 ```
+
+You cannot use `FOREACH` to loop and array of type `anyarray` since you cannot declare
+ `el` as `anyelement`. You'll get compiling error like
+  `variable "el" has pseudo-type anyelement`.
 
 ### references
 - [book: postgres server programming second edition](http://sd.blackball.lv/library/PostgreSQL_Server_Programming_Second_Edition_(2015).pdf)

@@ -1,104 +1,85 @@
-### Frequent used sql queries
+```metadata
+tags: sql, cheatsheet, postgres, mysql, sqlserver
+```
+
+## sql cheatsheet
 
 #### show server version
-<details open>
-  <summary>postgres</summary>
 
-    select version();
-</details>
-<details>
-  <summary>mysql</summary>
+    postgres/mysql       $ select version()
+    mysql/sqlserver      $ select @@version
 
-    select version();
-</details>
+#### limit N
 
-<details open><summary>postgres</summary>
+    postgres/mysql       $ select * from table_xxx limit 10
+    sqlserver            $ select top 10 from table_xxx
 
-* base64 decode/encode
+#### drop table
+
+    postgres/mysql/sqlserver>=2016    $ drop table [if exists] table_xxx [cascade]
+    sqlserver                         $ if object_id('table_xxx', 'U') is not null drop table table_xxx
+
+#### prepare statement and binding
+
+Postgres referres parameters by position, like `$1`, `$2`, `$3`.
+
+    PREPARE fooplan (int, text, bool, numeric) AS INSERT INTO foo VALUES($1, $2, $3, $4);
+    EXECUTE fooplan(1, 'Hunter Valley', 't', 200.00);
+
+In sql server, you can refer parameter by name or position, like `@name`, `@id`, `@p1`.
+
+    DECLARE @P1 INT;
+    EXEC sp_prepare @P1 OUTPUT,
+        N'@P1 NVARCHAR(128), @P2 NVARCHAR(100)',
+        N'SELECT database_id, name FROM sys.databases WHERE name=@P1 AND state_desc = @P2';
+    EXEC sp_execute @P1, N'tempdb', N'ONLINE';
+    EXEC sp_unprepare @P1;
+
+
+    postgres/mysql       $ select version()
+
+#### base64
+postgres:
 
       select encode('hello', 'base64');    -- output aGVsbG8=
       select convert_from(decode('aGVsbG8=', 'base64'), 'utf8');  -- decode returns bytea
-</details>
-<details><summary>mysql</summary>
 
-* base64 decode/encode
+mysql:
 
       select to_base64('hello');    -- output aGVsbG8=
       select from_base64('aGVsbG8=');
-</details>
 
 #### string related
+-. concat multiple strings
 
-<details open>
-  <summary>postgres</summary>
-  
-* basic string manipulation
-  
-      -- remove leading and trailing space, I added '#' so that it's easy to check the result
-      select '#' || trim('  abc  ') || '#';
-      -- you can also trim any other characters, and you can choose trim leading, trailing or both
-      select '#' || trim(both ' *=' from ' **  b.=c = ')  || '#';   -- get `#b.=c#`
-      
-      select 'hello' || ' world' || '!';         -- concat multiple strings
+      postgres$ select 'hello' || ' world' || '!';
+      postgres$ select 'hello' || null;         -- you got NULL if concat with null
+      mysql   $ select concat('hello', 'world', '!');
 
-</details>
-<details>
-  <summary>mysql</summary>
+-. remove leading and trailing space
 
-* basic string manipulation
-
-      select trim('  abc  ');  -- remove leading and trailing space
-      
-      select concat('hello', ' world', '!');         -- concat multiple strings
-</details>
+      postgres$ -- you can also trim any other characters, and you can choose trim leading, trailing or both
+      postgres$ select '#' || trim(both ' *=' from ' **  b.=c = ')  || '#';   -- get `#b.=c#`
+      mysql$ select trim('   abc   ');
 
 
 #### timezone related
-* show timezone
-  <details open>
-    <summary>postgres</summary>
+-. show timezone
 
-      show timezone;
-      select current_setting('timezone');
-  </details>
-  <details>
-    <summary>mysql</summary>
+    postgres$ show timezone;
+    postgres$ select current_setting('timezone');
+    mysql   $ select @@session.time_zone;
 
-      select @@session.time_zone;
-  </details>
+-. get timezone offset
 
-* get timezone offset
-  <details open>
-    <summary>postgres</summary>
-
-      select extract(timezone from now())/3600;
-  </details>
-  <details>
-    <summary>mysql</summary>
-
-      select @@session.time_zone;
-  </details>
+    postgres$ select extract(timezone from now())/3600;
 
 #### datetime related
-* interval to seconds
-  <details open>
-    <summary>postgres</summary>
+-. interval to seconds
 
-      select extract(epoch from interval '1 hours');
-  </details>
-  <details>
-    <summary>mysql</summary>
+    postgres$ select extract(epoch from interval '1 hours');
 
-      --select @@session.time_zone;
-  </details>
-* timestamp to seconds
-  <details open>
-    <summary>postgres</summary>
+-. timestamp to seconds
 
-      select extract(epoch from now());
-  </details>
-  <details>
-    <summary>mysql</summary>
-
-      select to_seconds(now());
-  </details>
+    postgres$ select extract(epoch from now());
+    mysql   $ select to_seconds(now());

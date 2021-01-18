@@ -117,6 +117,12 @@ alter subscription sub_test1 refresh publication;
 Above sql will fetch missing tables from master side and start to sync newly added tables.
 
 
+### change logs
+postgres 13
+- now you can add partitioned tables to publication, then all partitions (include future partitions) are added
+- supports `publish_via_partition_root` option, if enabled, changes on partitions will be published on partitioned
+  table which means that the replication side can use a non-partitioned table to subscribe
+
 ### FAQ
 What happens if I remove a subscribed table on replication side and add it again?
 
