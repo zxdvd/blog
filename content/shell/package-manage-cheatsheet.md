@@ -1,6 +1,6 @@
-<!---
+```metadata
 tags: linux, shell, apt
--->
+```
 
 ## package manage cheatsheet
 

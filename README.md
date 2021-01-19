@@ -42,6 +42,7 @@
 * [js / basic: string, bytes, unicode conversion](./content/js/basic%3A%20string%2C%20bytes%2C%20unicode%20conversion.md)
 * [js / node: bytecode](./content/js/node%3A%20bytecode.md)
 * [js / node: require hook](./content/js/node%3A%20require%20hook.md)
+* [kubernetes / basic: configmap](./content/kubernetes/basic%3A%20configmap.md)
 * [nginx / basic: next upstream](./content/nginx/basic%3A%20next%20upstream.md)
 * [nginx / nginx: process phase](./content/nginx/nginx%3A%20process%20phase.md)
 * [nginx / nginx: request-rate-limit](./content/nginx/nginx%3A%20request-rate-limit.md)
