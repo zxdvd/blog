@@ -1,6 +1,6 @@
-<!---
+```metadata
 tags: linux, ipc, memory
--->
+```
 
 ## ipc: shared memory
 Linux and most unix supports both system V shared memory and POSIX shared memory.
@@ -13,10 +13,10 @@ The POSIX is always suggested.
 #include <sys/stat.h>        /* For mode constants */
 #include <fcntl.h>           /* For O_* constants */
 
-int shm_open(const char *name, int oflag, mode_t mode);    // open a file descriptor
+int shm_open(const char *name, int oflag, mode_t mode);    // open a file descriptor via file path
+int ftruncate(int fd, off_t length);                       // extend fd to requested size in mmap
 void *mmap(void *addr, size_t length, int prot, int flags,
                   int fd, off_t offset);                   // mmap into process's virtual address space
-int ftruncate(int fd, off_t length);                       // truncate to requested size in mmap
 close(fd);                           // you can close the fd returned by shm_open now
 // use the shared memory
 
@@ -25,7 +25,10 @@ int munmap(void *addr, size_t length);                     // unmap, oppose to t
 int shm_unlink(const char *name);                          // unlink shared memory, oppose to the shm_open
 ```
 
-Attention, you need to link with `-lrt`.
+Attention:
+
+- the `ftruncate` is used to extend the the file so that it has enough size to mmap
+- you need to link with `-lrt`.
 
 ### system V interface
 

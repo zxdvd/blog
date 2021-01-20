@@ -49,6 +49,7 @@
 * [bench / io-bench: fio](./content/os/bench/io-bench%3A%20fio.md)
 * [bench / io-bench: ioping](./content/os/bench/io-bench%3A%20ioping.md)
 * [fs / go through the read syscall](./content/os/fs/go%20through%20the%20read%20syscall.md)
+* [io / read write apis](./content/os/io/read%20write%20apis.md)
 * [os / ipc: share memory](./content/os/ipc%3A%20share%20memory.md)
 * [memory / from free to meminfo](./content/os/memory/from%20free%20to%20meminfo.md)
 * [memory / kernel: memory zones](./content/os/memory/kernel%3A%20memory%20zones.md)
