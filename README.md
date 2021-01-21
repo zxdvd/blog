@@ -127,6 +127,7 @@
 * [redis / source code: intset](./content/redis/source%20code%3A%20intset.md)
 * [redis / source code: key expire](./content/redis/source%20code%3A%20key%20expire.md)
 * [redis / source code: redis object](./content/redis/source%20code%3A%20redis%20object.md)
+* [redis / source code: rio](./content/redis/source%20code%3A%20rio.md)
 * [redis / source code: sds](./content/redis/source%20code%3A%20sds.md)
 * [redis / source code: set](./content/redis/source%20code%3A%20set.md)
 * [redis / source code: skiplist](./content/redis/source%20code%3A%20skiplist.md)
