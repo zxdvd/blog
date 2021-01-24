@@ -55,6 +55,7 @@
 * [memory / from free to meminfo](./content/os/memory/from%20free%20to%20meminfo.md)
 * [memory / kernel: memory zones](./content/os/memory/kernel%3A%20memory%20zones.md)
 * [memory / proc meminfo explaination](./content/os/memory/proc%20meminfo%20explaination.md)
+* [memory / tcmalloc intro](./content/os/memory/tcmalloc%20intro.md)
 * [os / memory: memory mapping](./content/os/memory%3A%20memory%20mapping.md)
 * [tcpip / socket io: read](./content/os/tcpip/socket%20io%3A%20read.md)
 * [tcpip / socket: raw socket](./content/os/tcpip/socket%3A%20raw%20socket.md)
