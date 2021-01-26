@@ -27,6 +27,7 @@
 * [go / basic: bytes, string and runes](./content/go/basic%3A%20bytes%2C%20string%20and%20runes.md)
 * [go / basic: initialization](./content/go/basic%3A%20initialization.md)
 * [go / basic: map](./content/go/basic%3A%20map.md)
+* [go / basic: struct embedded field-inheritance](./content/go/basic%3A%20struct%20embedded%20field-inheritance.md)
 * [go / go-slice](./content/go/go-slice.md)
 * [go / go-vet](./content/go/go-vet.md)
 * [go / perf: reduce allocation from 7 to 1](./content/go/perf%3A%20reduce%20allocation%20from%207%20to%201.md)

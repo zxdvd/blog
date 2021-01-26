@@ -1,5 +1,5 @@
 ```metadata
-tags: go, package, module
+tags: go, spec, package, module
 ```
 
 ## basic: initialization
