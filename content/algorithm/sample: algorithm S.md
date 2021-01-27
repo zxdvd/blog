@@ -15,7 +15,7 @@ Suppose you want to get m samples from n elements (n is not known).
 
 - Get first m from all elements, if n <= m, then all of them are used.
 
-- For the i-th element, it has probability of `m/i` to be chosen to fill in the
+- For the i-th element (i>m), it has probability of `m/i` to be chosen to fill in the
  samples, and at the same time one of the m samples will be evicted randomly.
 
 - Repeat above step for all data.
@@ -26,10 +26,12 @@ For the i-th element, it has probability of `m/i` to be temporarily chosen, but 
  the probability that it will be kept finally?
 
 - At the i+1 step, `m/i+1` is the probability that i+1 will be chosen, `1-m/(i+1)` is
- the opposite.
+ the probability that it will not be chosen.
 
-    + if i+1 is not chosen (1-m/(i+1)), then of course the i-th element is kept
-    + if i+1 is chosen, then probability that i-th will be kept is `m/(i+1) * (1-1/m)`
+    + if i+1 element is not chosen (1-m/(i+1)), then of course the i-th element is kept
+      since no need to evict one from previously chosen elements
+    + if i+1 element is chosen, then probability that i-th will be kept is `m/(i+1) * (1-1/m)`
+    + since the probability of i-th will not be evicted is `1-1/m`
     + sum up above two, the probability that i-th will survive in i+1 step is
 
             1-m/(i+1)  +  m/(i+1) * (1-1/m)
