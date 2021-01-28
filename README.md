@@ -75,6 +75,7 @@
 * [postgres / pg-basic: crosstab](./content/postgres/pg-basic%3A%20crosstab.md)
 * [postgres / pg-basic: datetime tips](./content/postgres/pg-basic%3A%20datetime%20tips.md)
 * [postgres / pg-basic: encoding, collate, ctype](./content/postgres/pg-basic%3A%20encoding%2C%20collate%2C%20ctype.md)
+* [postgres / pg-basic: exclude constraint](./content/postgres/pg-basic%3A%20exclude%20constraint.md)
 * [postgres / pg-basic: gist index](./content/postgres/pg-basic%3A%20gist%20index.md)
 * [postgres / pg-basic: null的一些注意事项](./content/postgres/pg-basic%3A%20null%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9.md)
 * [postgres / pg-basic: syntax string](./content/postgres/pg-basic%3A%20syntax%20string.md)
