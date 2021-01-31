@@ -1,6 +1,8 @@
-<!---
+```metadata
 tags: postgres, window function
--->
+```
+
+## postgres basic: window function
 
 Window function looks similar to `group by` but varies greatly. The `group by` clause will 
 aggregate each group (multiple rows) to a single row while the window function will compute 
