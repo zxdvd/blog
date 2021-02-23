@@ -114,6 +114,7 @@
 * [sourcecode / storage: ring buffer](./content/postgres/sourcecode/storage%3A%20ring%20buffer.md)
 * [postgres / sql-cheatsheet](./content/postgres/sql-cheatsheet.md)
 * [postgres / sql: use result of one insert in another insert](./content/postgres/sql%3A%20use%20result%20of%20one%20insert%20in%20another%20insert.md)
+* [python / inspect: function parameter typing and annotation](./content/python/inspect%3A%20function%20parameter%20typing%20and%20annotation.md)
 * [redis / data types and internal types](./content/redis/data%20types%20and%20internal%20types.md)
 * [redis / how redis process a command](./content/redis/how%20redis%20process%20a%20command.md)
 * [redis / redis evict strategy](./content/redis/redis%20evict%20strategy.md)
