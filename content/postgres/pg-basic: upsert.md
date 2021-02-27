@@ -1,6 +1,6 @@
-<!---
+```metadata
 tags: postgres, query, update
--->
+```
 
 ## postgres upsert
 There are multiple ways to achieve the upsert or insert ignore effects.
@@ -10,8 +10,8 @@ There are multiple ways to achieve the upsert or insert ignore effects.
 * do a atomic `update; insert if no row updated` in application level
 
 ### insert on conflict
-From postgres 9.5, the INSERT supports `on conflict [conflict_target] conflict_action` 
-clause. You can use it to achieve the **upsert** or **insert or ignore** effects.
+From postgres 9.5, the INSERT supports `on conflict [conflict_target] conflict_action`
+ clause. You can use it to achieve the **upsert** or **insert or ignore** effects.
 
 ``` sql
 insert into t_upsert values (1, 10,'abc'), (2, 12, 'cc'), (3, 13, 'dd')
@@ -32,11 +32,11 @@ Attention:
 - You can still use `returning *` if you want
 
 #### upsert multiple values
-You can insert multiple values just like above example. And the result could be some inserted 
-and some updated.
+You can insert multiple values just like above example. And the result could be some inserted
+ and some updated.
 
-However, there shouldn't have conflict between these values that will be inserted. Following 
-inserting will get error.
+However, **there shouldn't have conflict between these values that will be inserted**. Following
+ inserting will get error.
 
 ``` sql
 insert into t_upsert values (3, 13,'abc'), (3, 13, 'dd')
@@ -51,8 +51,8 @@ HINT:  Ensure that no rows proposed for insertion within the same command have d
 To achieve the insert ignore effect, just replace `do update` with the `do nothing` action.
 
 ### insert catch exception and then update
-You can also write a function that try insert first and do update in exception. This will 
-work for postgres version below 9.5.
+You can also write a function that try insert first and do update in exception. This will
+ work for postgres version below 9.5.
 
 Following is the function that sequelize (a node.js ORM) used:
 
