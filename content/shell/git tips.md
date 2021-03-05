@@ -38,6 +38,10 @@ Of course, you can `tar` a repo but `tar` deals with `directory` and it will `ta
 
 
 ### log related
+#### get commit id of HEAD or branch
+
+    $ git rev-parse HEAD          // full commit id like 2ab5776170ed2e530f2dc5e2fae647ca7fd494e6
+    $ git rev-parse --short master                 // get short commit id like `2ab5776`
 
 #### filter commits
 You can filter commits in one branch but not in another like following:
@@ -54,6 +58,8 @@ Sometimes, we may need latest commit date and inject it to config or version inf
 
     $ git log -1  --date=short --pretty=format:%cd     // 2019-10-20
     $ git log -1  --format=%aI master                  // 2019-10-10T13:09:42+08:00
+    $ git log -1  --pretty='format:%cd' --date=format:'%Y-%m-%d_%H_%M'   // 2019-10-10_09_42
+
 
 ### patch
 Use `git diff` to create a patch and `git apply` to apply patch.
@@ -61,6 +67,18 @@ Use `git diff` to create a patch and `git apply` to apply patch.
     $ git diff > unstaged.patch
     $ git diff --cached > staged.patch
     $ git apply staged.patch
+
+### submodules
+You'll get an empty directory of submodule when cloning a repo with submodule. You should
+ clone like following
+
+    $ git clone REPO_URL --recursive
+
+Or update after normal clone like:
+
+    $ git submodule update --init
+
+Submodule also has its own `.git` directory stands in `.git/<submodule_name>`.
 
 ### references
 - [gist: pre-commit for eslint](https://gist.github.com/dahjelle/8ddedf0aebd488208a9a7c829f19b9e8)
