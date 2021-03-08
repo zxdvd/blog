@@ -116,6 +116,7 @@
 * [postgres / sql-cheatsheet](./content/postgres/sql-cheatsheet.md)
 * [postgres / sql: use result of one insert in another insert](./content/postgres/sql%3A%20use%20result%20of%20one%20insert%20in%20another%20insert.md)
 * [python / inspect: function parameter typing and annotation](./content/python/inspect%3A%20function%20parameter%20typing%20and%20annotation.md)
+* [python / sqlalchemy](./content/python/sqlalchemy.md)
 * [redis / data types and internal types](./content/redis/data%20types%20and%20internal%20types.md)
 * [redis / how redis process a command](./content/redis/how%20redis%20process%20a%20command.md)
 * [redis / redis evict strategy](./content/redis/redis%20evict%20strategy.md)
@@ -162,3 +163,4 @@
 * [http / cookie: same-site attribute](./content/web/http/cookie%3A%20same-site%20attribute.md)
 * [http / protocol: quic overview](./content/web/http/protocol%3A%20quic%20overview.md)
 * [react / react hooks: useEffect](./content/web/react/react%20hooks%3A%20useEffect.md)
+* [web / security: xss](./content/web/security%3A%20xss.md)
