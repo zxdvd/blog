@@ -96,6 +96,12 @@ do_update_stmt = insert_stmt.on_conflict_do_update(
     )
 ```
 
+### query
+#### one() vs first()
+`one()` expects to get eactly one result, otherwise it raise exception (get 0 row or
+ more then one row). `first()` expects to get one. It will use `limit 1` to get at
+ most one. It won't raise exception if returns 0 row.
+
 ### references
--. [sqlalchemy doc: postgres](https://docs.sqlalchemy.org/en/14/dialects/postgresql.html)
--. [sqlalchemy doc: relationship](https://docs.sqlalchemy.org/en/14/orm/basic_relationships.html)
+- [sqlalchemy doc: postgres](https://docs.sqlalchemy.org/en/14/dialects/postgresql.html)
+- [sqlalchemy doc: relationship](https://docs.sqlalchemy.org/en/14/orm/basic_relationships.html)

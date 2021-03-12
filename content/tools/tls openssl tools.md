@@ -155,9 +155,9 @@ Content in the middle is binary data encoded using base64. The label could be
  `CERTIFICATE`, `CERTIFICATE REQUEST`, `PKCS7`, `PRIVATE KEY`, `PUBLIC KEY` or others.
 
 ### other tools
--. [mkcert](https://github.com/FiloSottile/mkcert) is a nice and easy to use tool that can
+- [mkcert](https://github.com/FiloSottile/mkcert) is a nice and easy to use tool that can
  help you to setup CA and create certificates in one line.
 
 ### references
--. [wikipedia: PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)
--. [gist: how to setup your own CA](https://gist.github.com/Soarez/9688998)
+- [wikipedia: PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)
+- [gist: how to setup your own CA](https://gist.github.com/Soarez/9688998)

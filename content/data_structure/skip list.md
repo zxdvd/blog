@@ -98,8 +98,8 @@ It's a little complex for deleting. You cannot simply set `forward` pointer to j
  deleted.
 
 One method is inserting a null node as marker after the deleted node first. So that all
- other threads should not insert before this null node (just loop a while). By this way
- we can sure no inserting will happen after deleted node. When delete it together with
+ other threads should not insert before this null node (just spinning here). By this way
+ we can sure no inserting will happen after deleted node. Then delete it together with
  null node using CAS.
 
 ### references

@@ -59,4 +59,4 @@ kernel >= 4.18). Some applications may have a lot of threads and the `per-thread
 - pre-allocate leads to large VSS (RSS is not affected since they are not page faulted)
 
 ### references
--. [tcmalloc design](https://github.com/google/tcmalloc/blob/master/docs/design.md)
+- [tcmalloc design](https://github.com/google/tcmalloc/blob/master/docs/design.md)

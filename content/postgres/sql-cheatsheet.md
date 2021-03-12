@@ -50,13 +50,13 @@ mysql:
       select from_base64('aGVsbG8=');
 
 #### string related
--. concat multiple strings
+- concat multiple strings
 
       postgres$ select 'hello' || ' world' || '!';
       postgres$ select 'hello' || null;         -- you got NULL if concat with null
       mysql   $ select concat('hello', 'world', '!');
 
--. remove leading and trailing space
+- remove leading and trailing space
 
       postgres$ -- you can also trim any other characters, and you can choose trim leading, trailing or both
       postgres$ select '#' || trim(both ' *=' from ' **  b.=c = ')  || '#';   -- get `#b.=c#`
@@ -64,22 +64,22 @@ mysql:
 
 
 #### timezone related
--. show timezone
+- show timezone
 
     postgres$ show timezone;
     postgres$ select current_setting('timezone');
     mysql   $ select @@session.time_zone;
 
--. get timezone offset
+- get timezone offset
 
     postgres$ select extract(timezone from now())/3600;
 
 #### datetime related
--. interval to seconds
+- interval to seconds
 
     postgres$ select extract(epoch from interval '1 hours');
 
--. timestamp to seconds
+- timestamp to seconds
 
     postgres$ select extract(epoch from now());
     mysql   $ select to_seconds(now());

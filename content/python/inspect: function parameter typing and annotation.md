@@ -75,5 +75,5 @@ With help of **signature**, fastapi will replace parameter with `Request` (incom
  when it knows that type of the parameter is `Request`.
 
 ### references
--. [PEP 3107](https://www.python.org/dev/peps/pep-3107/)
--. [PEP 484](https://www.python.org/dev/peps/pep-0484/)
+- [PEP 3107](https://www.python.org/dev/peps/pep-3107/)
+- [PEP 484](https://www.python.org/dev/peps/pep-0484/)

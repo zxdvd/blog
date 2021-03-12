@@ -11,11 +11,11 @@ tags: web, security, xss
 ### short summaries
 `xss` is not a small topic. Following is a short summaries:
 
--. be careful of EVERY user input
--. always use context aware template, avoid using those just doing string concatenating
--. escape user input (html escape, javascript escape); you should escape when they'll be
+- be careful of EVERY user input
+- always use context aware template, avoid using those just doing string concatenating
+- escape user input (html escape, javascript escape); you should escape when they'll be
  used but not when received from user (as late as possible)
--. prefer whitelist to blacklist. limit trusted html tag, tag attributes, trusted url prefix.
+- prefer whitelist to blacklist. limit trusted html tag, tag attributes, trusted url prefix.
  You may think of using regex to filter out dangerous content like `javascript`, `script`,
  `eval` and others. But NEVER do this. There are too many tips to escape these kinds of
  regex match.
@@ -143,14 +143,14 @@ A polyglot payload can inject at many different contexts. Let's see following ex
 
     jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */oNcliCk=alert(1) )//%0D%0A%0d%0a//</stYle>/</titLe>/</teXtarEa>/</scRipt>/--!>\x3csVg/<sVg/oNloAd=alert(2)//>\x3e
 
--. It can inject the href attribute. For this case, the `/*...*/` is comment and will be
+- It can inject the href attribute. For this case, the `/*...*/` is comment and will be
  ignored. The first alert will effect.
 
--. The ** ' " \` ** followed by a `/*` will close the quote in tag attribute or js and start
+- The ** ' " \` ** followed by a `/*` will close the quote in tag attribute or js and start
  a comment. This comment will be closed by `*/` before the `oNcliCk`. So the first alert will
  effect too. This hits template like `<a style="{{ style }}">`.
 
--. The `</stYle>/</titLe>/</teXtarEa>/</scRipt>/--!>` will close `<style>`, `<title>`,
+- The `</stYle>/</titLe>/</teXtarEa>/</scRipt>/--!>` will close `<style>`, `<title>`,
  `<textarea>`, `<script>` and `<!--`. So that the second alert will work.
 
 In above case, we found that it mixes upper case characters and lower case characters, like
@@ -195,7 +195,7 @@ You really should have a look at
  It provides many nice xss tests.
 
 ### references
--. [google application security: xss](https://www.google.com/about/appsecurity/learning/xss/index.html)
--. [OWASP: XSS prevention cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
--. [OWASP: XSS filter cheatsheet](https://owasp.org/www-community/xss-filter-evasion-cheatsheet)
--. [github HackVault: xss polyglot](https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot)
+- [google application security: xss](https://www.google.com/about/appsecurity/learning/xss/index.html)
+- [OWASP: XSS prevention cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+- [OWASP: XSS filter cheatsheet](https://owasp.org/www-community/xss-filter-evasion-cheatsheet)
+- [github HackVault: xss polyglot](https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot)

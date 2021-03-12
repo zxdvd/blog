@@ -12,7 +12,7 @@ def get_all_git_files(path='.'):
 
 def get_articles(folder='content', ext='.md'):
     articles = get_all_git_files(folder)
-    articles = [a for a in articles if a.endswith(ext)]
+    articles = [a for a in articles if a.endswith(ext) and (not a.endswith('README.md'))]
     articles.sort()
     return articles
 

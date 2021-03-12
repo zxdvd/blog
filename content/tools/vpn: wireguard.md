@@ -97,6 +97,6 @@ Actually, `Address=xxx` and `SaveConfig=true` are only supported by tool `wg-qui
 
 
 ### references
--. [archwiki: wireguard](https://wiki.archlinux.org/index.php/WireGuard)
--. [wireguard official site](https://www.wireguard.com/)
--. [userspace implementation: wireguard in go](https://github.com/WireGuard/wireguard-go)
+- [archwiki: wireguard](https://wiki.archlinux.org/index.php/WireGuard)
+- [wireguard official site](https://www.wireguard.com/)
+- [userspace implementation: wireguard in go](https://github.com/WireGuard/wireguard-go)

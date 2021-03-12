@@ -47,6 +47,19 @@ ON CONFLICT DO UPDATE command cannot affect row a second time
 HINT:  Ensure that no rows proposed for insertion within the same command have duplicate constrained values.
 ```
 
+#### conflict with partial unique index
+You can also do upsert against partial unique index. You need to add the `where condition`
+ of the partial index along with the `on conflict`. See following example:
+
+```sql
+create table student (id serial, name text, deleted_at timestamptz, primary key (id));
+create unique index idx_student_uniq_1 on student (name) where deleted_at is null;      -- create partial index
+
+-- insert some rows, the ('zhao', now()) will be inserted since it doesn't cover by the partial index
+insert into student (name, deleted_at) values ('zhao', null), ('zhao', now()), ('li', null)
+    on conflict (name) where deleted_at is null do nothing;
+```
+
 #### insert on conflict do nothing
 To achieve the insert ignore effect, just replace `do update` with the `do nothing` action.
 

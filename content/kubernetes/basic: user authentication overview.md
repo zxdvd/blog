@@ -59,5 +59,5 @@ For each service account, it also has an username like
  account: via serviceaccount and via user.
 
 ### references
--. [k8s official: authentication](https://kubernetes.io/docs/reference/access-authn-authz/authentication/)
--. [k8s official: RBAC authentication](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
+- [k8s official: authentication](https://kubernetes.io/docs/reference/access-authn-authz/authentication/)
+- [k8s official: RBAC authentication](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)

@@ -128,10 +128,10 @@ This query did a BitmapOr on result of two index scan. So the idx_scan is 2. We 
  is 0. And postgres counts bitmap as scan fetch to stat of table.
 
 Summary:
--. `idx_scan` and `seq_scan` count how many times the relation is scanned
--. `idx_tup_read` counts tuples of an index read
--. `idx_tup_fetch` of index counts tuples of table found by the reading of the index
--. `idx_tup_fetch` of table counts tuples of table fetched by index scan (including bitmap scan)
+- `idx_scan` and `seq_scan` count how many times the relation is scanned
+- `idx_tup_read` counts tuples of an index read
+- `idx_tup_fetch` of index counts tuples of table found by the reading of the index
+- `idx_tup_fetch` of table counts tuples of table fetched by index scan (including bitmap scan)
 
 ### references
 - [official doc: monitoring-stats](https://www.postgresql.org/docs/10/monitoring-stats.html)
