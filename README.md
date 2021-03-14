@@ -44,6 +44,7 @@
 * [js / basic: string, bytes, unicode conversion](./content/js/basic%3A%20string%2C%20bytes%2C%20unicode%20conversion.md)
 * [js / node: bytecode](./content/js/node%3A%20bytecode.md)
 * [js / node: require hook](./content/js/node%3A%20require%20hook.md)
+* [kubernetes / basic: auth - RBAC](./content/kubernetes/basic%3A%20auth%20-%20RBAC.md)
 * [kubernetes / basic: configmap](./content/kubernetes/basic%3A%20configmap.md)
 * [kubernetes / basic: run a simple pod](./content/kubernetes/basic%3A%20run%20a%20simple%20pod.md)
 * [kubernetes / basic: user authentication overview](./content/kubernetes/basic%3A%20user%20authentication%20overview.md)
