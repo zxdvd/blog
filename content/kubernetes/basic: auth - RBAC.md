@@ -323,6 +323,29 @@ And then we can get the signed certificate via `kubectl get csr/user2 -o yaml`. 
  certificate is a one line base64 string at `status.certificate`. You need to decode
  it.
 
+### kubectl config
+You can test token or certificate using `curl` quickly. And you can create kubectl
+ config file if there is no problem so that you can use kubectl without specifying
+ auth file.
+
+```shell
+// set user and cluster
+$ kubectl config set-credentials u1 --client-key ./user1.key --client-certificate ./user1.crt
+$ kubectl config set-cluster prod --server=https://localhost:36666 \
+        --certificate-authority /etc/kubernetes/pki/ca.crt
+
+$ kubectl config set-context prod --cluster=prod --user=u1
+$ kubectl config use-context prod              # set current context
+```
+
+Above command will setup kubectl config file at `$HOME/.kube/config`. You can also edit
+ it manually.
+
+For the `set-credentials` and `set-cluster`, you can add option `--embed-certs` so
+ that it will base64 the certificate and embed it in the config file. Then the config
+ file doesn't depend on any local file and you can send it to others or copy to other
+ machines.
+
 ### validation
 It seems that kubernetes doesn't check whether an object exists or not when applying
  configuration. I tried to bind role with an un-existed service account. It applies
