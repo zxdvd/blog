@@ -4,7 +4,12 @@ tags: kubernetes, cli
 
 ## run a simple pod
 
-Write a simple yaml config like following:
+You can deploy an application easily from command line, like:
+
+    $ kubectl create deployment echo --image=busybox sh -c \
+        'for i in $(seq 50);do sleep 2 && echo date: $(date +"%Y-%m-%d_%H_%M_%S");done'
+
+You can also write a simple yaml config like following:
 
 ```yaml
 ---
