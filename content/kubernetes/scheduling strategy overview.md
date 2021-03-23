@@ -134,6 +134,16 @@ Sometimes, you need to combine them together. For example, you should use GPU la
  nodes with GPU so that normal pods won't go to GPU nodes since GPU is expensive
  resource.
 
+### topology spread constraints
+As claimed above, we can use podAntiAffinity to deploy service evenly so that each node
+ has at most one pod. But suppose you have a large cluster with many zones. How to deploy
+ pods evenly in these zones? Suppose deploy 50 pods in 10 zones, we want each zone has
+ 5 pods?
+
+You can use `topologySpreadConstraints` to achieve this. It help you to spread pods in
+ multiple zones evenly.
+
 ### references
 - [k8s official: nodeSelector and affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node)
 - [k8s official: taint and toleration](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/)
+- [k8s official: topology spread constraints](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/)
