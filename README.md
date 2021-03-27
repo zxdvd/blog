@@ -159,6 +159,7 @@
 * [shell / package-manage-cheatsheet](./content/shell/package-manage-cheatsheet.md)
 * [shell / ssh config的使用技巧](./content/shell/ssh%20config%E7%9A%84%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7.md)
 * [shell / 生产力: ssh跳板机配置](./content/shell/%E7%94%9F%E4%BA%A7%E5%8A%9B%3A%20ssh%E8%B7%B3%E6%9D%BF%E6%9C%BA%E9%85%8D%E7%BD%AE.md)
+* [tools / ftp: vsftpd setup](./content/tools/ftp%3A%20vsftpd%20setup.md)
 * [tools / lvm: basic usage](./content/tools/lvm%3A%20basic%20usage.md)
 * [tools / pandas: quick guide](./content/tools/pandas%3A%20quick%20guide.md)
 * [tools / tls openssl tools](./content/tools/tls%20openssl%20tools.md)

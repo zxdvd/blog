@@ -1,6 +1,7 @@
 
 ### Notes
 
+* [ftp: vsftpd setup](./ftp%3A%20vsftpd%20setup.md)
 * [lvm: basic usage](./lvm%3A%20basic%20usage.md)
 * [pandas: quick guide](./pandas%3A%20quick%20guide.md)
 * [tls openssl tools](./tls%20openssl%20tools.md)
