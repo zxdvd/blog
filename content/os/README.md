@@ -7,6 +7,7 @@
 * [io / read write apis](./io/read%20write%20apis.md)
 * [ipc / ipc: share memory](./ipc/ipc%3A%20share%20memory.md)
 * [memory / from free to meminfo](./memory/from%20free%20to%20meminfo.md)
+* [memory / kernel: OOM](./memory/kernel%3A%20OOM.md)
 * [memory / kernel: memory zones](./memory/kernel%3A%20memory%20zones.md)
 * [memory / proc meminfo explaination](./memory/proc%20meminfo%20explaination.md)
 * [memory / tcmalloc intro](./memory/tcmalloc%20intro.md)
