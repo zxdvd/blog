@@ -67,6 +67,7 @@
 * [memory / proc meminfo explaination](./content/os/memory/proc%20meminfo%20explaination.md)
 * [memory / tcmalloc intro](./content/os/memory/tcmalloc%20intro.md)
 * [os / memory: memory mapping](./content/os/memory%3A%20memory%20mapping.md)
+* [process / kernel process](./content/os/process/kernel%20process.md)
 * [tcpip / socket io: read](./content/os/tcpip/socket%20io%3A%20read.md)
 * [tcpip / socket: raw socket](./content/os/tcpip/socket%3A%20raw%20socket.md)
 * [tcpip / tcp: socket options](./content/os/tcpip/tcp%3A%20socket%20options.md)
