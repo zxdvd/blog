@@ -160,6 +160,7 @@
 * [shell / command-awk](./content/shell/command-awk.md)
 * [shell / git advance: merge another repo and keep histories](./content/shell/git%20advance%3A%20merge%20another%20repo%20and%20keep%20histories.md)
 * [shell / git tips](./content/shell/git%20tips.md)
+* [shell / network: iptables port forwarding](./content/shell/network%3A%20iptables%20port%20forwarding.md)
 * [shell / package-manage-cheatsheet](./content/shell/package-manage-cheatsheet.md)
 * [shell / ssh config的使用技巧](./content/shell/ssh%20config%E7%9A%84%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7.md)
 * [shell / 生产力: ssh跳板机配置](./content/shell/%E7%94%9F%E4%BA%A7%E5%8A%9B%3A%20ssh%E8%B7%B3%E6%9D%BF%E6%9C%BA%E9%85%8D%E7%BD%AE.md)
