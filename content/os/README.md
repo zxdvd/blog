@@ -14,6 +14,7 @@
 * [memory / tcmalloc intro](./memory/tcmalloc%20intro.md)
 * [memory: memory mapping](./memory%3A%20memory%20mapping.md)
 * [process / kernel process](./process/kernel%20process.md)
+* [process / process group and session](./process/process%20group%20and%20session.md)
 * [tcpip / socket io: read](./tcpip/socket%20io%3A%20read.md)
 * [tcpip / socket: raw socket](./tcpip/socket%3A%20raw%20socket.md)
 * [tcpip / tcp: socket options](./tcpip/tcp%3A%20socket%20options.md)
