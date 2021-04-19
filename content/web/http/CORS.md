@@ -29,14 +29,14 @@ With this mode, you can send or receive cookies as normal.
 
 
 ### cors mode
-If you want to request from another origin, and you can't want to use the `no-cors` (
+If you want to request from another origin, and you don't want to use the `no-cors` (
  uses other method or needs the response body), then you need to use mode `cors`.
 
 There are two kinds of cors request. One is very simple that has no preflight request.
 Another needs a preflight request.
 
 #### So what is cors preflight request?
-Preflight request is a request to same url with method as `OPTIONS` to ask for permission
+Preflight request is a request to same url with method as `OPTIONS` to ask permission
  for the cors request. Server may allow or reject it accordingly.
 
 The preflight request won't include the credentials. So do not design complex logic for
@@ -124,6 +124,10 @@ If the cors request is denied, browser will complain in the console. And if you 
 When you embedded b.com in a.com, the `Origin` of requests from the embedded b.com is
  b.com, not the outside a.com. So don't worry about that a normal request will become
  cors request when embedded in iframe. This won't happen.
+
+### redirect and cors
+When you redirect to different domain using 301 or 302 redirect, the target server should
+ deal with cors properly. Otherwise, the redirect will fail due to cors error.
 
 ### references
 - [fetch spec](https://fetch.spec.whatwg.org/)

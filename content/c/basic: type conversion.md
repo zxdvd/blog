@@ -50,17 +50,21 @@ The section 6.3.1.8 of the spec defines rules about this. To sum up
     is added by double, then the float is converted to double.
 
   - For integer, the rules are checked from top to bottom (stop after matched):
-      - If either side is unsigned long, then the other side is converted to this
-      - If one side is long and another side is unsigned int, then BOTH are converted to unsigned long
-      - If one side is long, then the other is converted to long
-      - If one side is unsigned int, then the other is converted to unsigned int
-      - BOTH side are converted to int
+      - integer promotion at first: type ranks lower than int are promoted to int (or unsigned int if int is not enough)
+      - if both are signed or unsigned, then a rank upgrade made them to be same type
+      - if rank of unsigned is greater or equal to rank of the signed, then the signed will be convert to unsigned
+      - then rank of unsigned is less than rank of the signed, then the signed can hold all values of unsigned, then
+        the unsigned is convert to signed
 
 These rules works for following operators:
 
     - arithmetic operators: *, /, %, +, -
     - comparing operators: ==, !=, >, <, >=, <=
     - bitwise operators: &, |, ^
+
+Above rules mentioned the concept of `rank`. The `rank` of integer types from low to high are:
+
+    bool  <  char  <  short  <  int  <  long  <  long long
 
 ### arithmetic calculation and conversion
 How does C deal with integer overflow? For example, a small unsigned int substracts from a

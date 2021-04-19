@@ -43,7 +43,6 @@ The detailed steps look like following (key exchanged with ECDH):
 ---------------------------------------------------------------------------------------
 6.                                  <<<<---------      server change cipher spec
                                     <<<<---------      server handshake finished
-                                    <<<<---------      server sends public key and sign to client
 ---------------------------------------------------------------------------------------
 7.    application data            ---->>>
                                   <<<----              application data

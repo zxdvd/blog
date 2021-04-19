@@ -1,5 +1,5 @@
 ```metadata
-tags: kubernetes, resource, limit, quota, memory cpu
+tags: kubernetes, resource, limit, quota, memory, cpu
 ```
 
 ## kubernetes resource manage: memory and cpu

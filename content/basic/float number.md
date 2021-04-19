@@ -45,7 +45,7 @@ func NaN() float64 { return Float64frombits(uvnan) }
 ```
 
 #### serialization of special values
-It seems that IEEE 754 defines a new NaNs and it left a very large range for NaNs. So that
+It seems that IEEE 754 defined NaN very relaxed and it left a very large range for NaNs. So that
  different architectures, compilers may have different representation of NaNs. It may lead
  to problem for float/double serialization and deserialization.
 

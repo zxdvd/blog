@@ -7,7 +7,7 @@ tags: basic, string, unicode, utf8, utf16
 I want to write a little about the history at first.
 
 There is only ASCII with when computer is invented. While computers were more pupolar
- among the world, more character sets are needed and intented, especially CJK ( Chinese,
+ among the world, more character sets are needed and invented, especially CJK ( Chinese,
  Japanese, Korean) character sets.
 
 Then came UCS2 that uses a fixed code unit (2 bytes) which can represent 65535 (2^16-1)
@@ -17,7 +17,7 @@ UCS2 does work well for a long time. And many programming languages use it as in
  character encoding for string, like java and js. And Microsoft Windows use it as internal
  encoding. It's easy and quick since each character uses a fixed 2 bytes.
 
-However, unicode grows so fast since it characters from more and more languages are adopted
+However, unicode grows so fast that characters from more and more languages are adopted
  and many graph characters are also adopted. Then 2 bytes are not enough.
 
 The whole unicode characters are divided into 17 planes, from 0x0 0000 to 0x10 FFFF, each
@@ -34,8 +34,8 @@ Then UCS4 (UTF32) comes. Yes, it uses 4 bytes (32 bits) for each characters. Of 
 UTF16 extends the UCS2 that it holds all characters of UCS2. And it uses a NOT USED range
  of UCS2 to encoding the non-BMP characters.
 
-The not used range is 0xD800-0xDBFF. Currently, The whole unicode is 21 bits width. UTF16
- uses range 0xDB00-0xDFFF to representing the higher 11 bits and range 0xDC00-0xDFFF for
+The not used range is 0xD800-0xDFFF. Currently, The whole unicode is 21 bits width. UTF16
+ uses range 0xDB00-0xDBFF to representing the higher 11 bits and range 0xDC00-0xDFFF for
  the lower 10 bits. So these two code units composes a surrogate pairs which can represent
  whole unicode.
 

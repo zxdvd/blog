@@ -1,6 +1,6 @@
-<!---
+```metadata
 tags: nginx, rate-limit
--->
+```
 
 ## nginx request rate limit
 

@@ -20,7 +20,7 @@ It finds following problems:
 You can read google sanitizers wiki to get detail about how it works. It replaces `malloc`
  and `free` and addes some small tricks.
 
-It divides virtual memory to too disjoint classes: `Mem` and `Shadow`. The `Mem` is used
+It divides virtual memory to two disjoint classes: `Mem` and `Shadow`. The `Mem` is used
  by user application code while the `Shadow` is a mapping of `Mem`. Each 8 bytes in `Mem`
  is mapped to 1 byte in `Shadow`. This one byte logs whether the related 8 bytes is poisoned.
 

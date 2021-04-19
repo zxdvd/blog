@@ -23,10 +23,10 @@ So how does hash table achieve O(1) for get, set, add and delete?
 
 ### implementation
 We know that search an element in array is O(n) since it needs to iterate the while array.
- But access via index is O(1) since address if the Mth element is `HEAD_ADDR + M * sizeof(element)`.
+ But access via index is O(1) since address of the Mth element is `HEAD_ADDR + M * sizeof(element)`.
 
 If we can convert search by key to search by index, then it's O(1). The hash table uses
- an array undergound. It hashes the keys to integer and then does modular calculation against
+ an array underground. It hashes the keys to integer and then does modular calculation against
  array length to get an array index. Then all search by key is similar to search by index,
  thus O(1).
 
@@ -68,13 +68,13 @@ We know hash table has O(1) for get,set,add and delete operations. But it's aver
     }
 ```
 
-The hash function should generate uniform output to reduce possibility of hash conflict.
+The hash function should generate uniform outputs to reduce possibility of hash conflict.
 And if it receives keys from untrusted source, the hash function should use some rand bytes
  as seed to avoid hash attack (attacker may construct keys that go to same bucket if hash
  result is determinable).
 
 ### rehash
-The undergound array of hash table always starts from a small size since it doesn't know
+The underground array of hash table always starts from a small size since it doesn't know
  how much data it will fill (a large one will waste memory). It's 8,16 or 32 sometimes.
  Use power of 2 so that the modular calculation is fast. As you fill more and more data,
  it must resize to a large table. Otherwise, too much key value pairs will go to same
@@ -82,7 +82,7 @@ The undergound array of hash table always starts from a small size since it does
 
 Rehash is the process of resize. You need to hash each key again that why we called it
  rehash. For example, when the size is 8, both hash value 3 and 11 go to the bucket 3.
- But when you resize it to 16 bucket, 3 goes to bucket 3 while 11 goes to bucket 11.
+ But when you resize it to 16 buckets, 3 goes to bucket 3 while 11 goes to bucket 11.
 
 If you need to load too much data, rehash may happen many times. To avoid this, some
  languages (Java) support to intiate a hash table with a size as hint. Then this hash
@@ -90,7 +90,7 @@ If you need to load too much data, rehash may happen many times. To avoid this, 
  cpu and memory a lot.
 
 ### load factor
-The undergound array will resize if the hash table grows too big or shrinks to a small
+The underground array will resize if the hash table grows too big or shrinks to a small
  one. But when will it resize? For a hash table with array size 8, will it resize to 16
  when it is half full or totally full?
 
