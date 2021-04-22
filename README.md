@@ -50,6 +50,7 @@
 * [kubernetes / basic: resource manage - QOS](./content/kubernetes/basic%3A%20resource%20manage%20-%20QOS.md)
 * [kubernetes / basic: resource manage - memory and cpu](./content/kubernetes/basic%3A%20resource%20manage%20-%20memory%20and%20cpu.md)
 * [kubernetes / basic: run a simple pod](./content/kubernetes/basic%3A%20run%20a%20simple%20pod.md)
+* [kubernetes / basic: storage - use local storage](./content/kubernetes/basic%3A%20storage%20-%20use%20local%20storage.md)
 * [kubernetes / basic: user authentication overview](./content/kubernetes/basic%3A%20user%20authentication%20overview.md)
 * [kubernetes / cri: migrate from docker to containerd](./content/kubernetes/cri%3A%20migrate%20from%20docker%20to%20containerd.md)
 * [kubernetes / scheduling strategy overview](./content/kubernetes/scheduling%20strategy%20overview.md)
