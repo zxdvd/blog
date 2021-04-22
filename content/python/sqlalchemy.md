@@ -102,6 +102,23 @@ do_update_stmt = insert_stmt.on_conflict_do_update(
  more then one row). `first()` expects to get one. It will use `limit 1` to get at
  most one. It won't raise exception if returns 0 row.
 
+### session
+#### object become empty after commit
+Sometimes, you may need to access ORM objects after commit. For example, asynchronous
+ frameworks may serialize objects to JSON response after commit asynchronously. But then
+ you may find that you get empty objects.
+
+Thus because sqlalchemy will `expire` all session objects after commit, you cannot
+ access fields of these objects.
+
+Someone suggests that you can refresh objects but `refresh` will load them from database
+ again. I don't think you want this.
+
+Actually, there is an option to control this behavior. It is `expire_on_commit`. It is
+ `True` by default. You can set it to `False` then you can use objects after committed.
+
+You can use it when you open a session or with `sessionmaker`.
+
 ### references
 - [sqlalchemy doc: postgres](https://docs.sqlalchemy.org/en/14/dialects/postgresql.html)
 - [sqlalchemy doc: relationship](https://docs.sqlalchemy.org/en/14/orm/basic_relationships.html)

@@ -74,7 +74,7 @@ Main code of the `LWLockAttemptLock` function, the `LWLockAcquire` relies on it.
 lock if available. If it is locked, it returns `true` which means that the caller need to wait the 
 lock.
 
-```
+```C
 static bool LWLockAttemptLock(LWLock *lock, LWLockMode mode) {
 	uint32		old_state;
 
@@ -134,6 +134,7 @@ static bool LWLockAttemptLock(LWLock *lock, LWLockMode mode) {
     // should never get here, otherwise you got a bug
 	pg_unreachable();
 }
+```
 
 
 ### LWLockAcquire

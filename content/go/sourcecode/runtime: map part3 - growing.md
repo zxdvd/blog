@@ -78,7 +78,7 @@ The resizing stage won't do any data moving.  The actual moving happens in each
 ```
 
 Does it mean that it only moves affected bucket? How about those never touched?
-Actually, the `growWork` function will the affected bucket first and then do an
+Actually, the `growWork` function will move the affected bucket first and then do an
  extra bucket moving from bucket 0 sequentially.
 
 ``` go

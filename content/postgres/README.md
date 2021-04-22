@@ -2,7 +2,6 @@
 ### Notes
 
 * [db: redo log](./db%3A%20redo%20log.md)
-* [mysql-note](./mysql-note.md)
 * [pg-basic: SRF function join type](./pg-basic%3A%20SRF%20function%20join%20type.md)
 * [pg-basic: create index](./pg-basic%3A%20create%20index.md)
 * [pg-basic: crosstab](./pg-basic%3A%20crosstab.md)

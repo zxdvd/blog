@@ -14,7 +14,7 @@ By default, the basename of the file path becomes key while content is the file.
 You can define the key by yourself using `--from-file=CUSTOMIZED_KEY=PATH_OF_FILE`.
 
 From kubernetes 1.14, `kubectl` has built-in supports for `kustomize`. So you can also
- create configmap from a `kustomization.yaml`:
+ create or update configmap from a `kustomization.yaml`:
 
 ```yaml
 configMapGenerator:
@@ -26,7 +26,21 @@ configMapGenerator:
 
 You can apply it using `kubectl apply -k .` at the folder with `kustomization.yaml`.
 The name of the created configmap will have a suffix which is hash of the content.
-This behavior can be disabled.
+This behavior can be disabled via options:
+
+```yaml
+generatorOptions:
+  disableNameSuffixHash: true
+```
+
+### get configmap
+It's easy to get a configmap via `kubectl get cm XXX -o yaml`. By this way, you get
+ a yaml config file that holds all files in this configmap.
+
+If you only want a specific file, you can copy it from container that mount it or
+ using the `jsonpath` of output, like following:
+
+    $ kubectl -n dev get cm XXX -o jsonpath='{.data.config\.js}' > config.js
 
 ### update a configmap
 You cannot create the same configmap again. But you can use the `create --dry-run` to

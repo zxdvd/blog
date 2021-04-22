@@ -7,9 +7,9 @@ tags: redis, dict, hash
 Dict is the key data structure in redis. A redis instance is like a huge centralized dict
  that can be shared by multiple application instances.
 
-The dict in redis is a linked hash table. Compared to hash table in python,java or go, I
+The dict in redis is a linked hash table. Compared to hash table in python,java, I
  think one of the biggest differences is rehashing. For map or hash table in program
- languages, they do will resize whole table and rehash all keys blockly. If the map is very
+ languages, they do will resize whole table and rehash all keys blocked. If the map is very
  large, it may block a long time. Luckily, it's very fast for small quantity of keys.
 
 However, for redis, it often needs to deal with millions of keys. We cannot rehashing millions
@@ -36,7 +36,7 @@ typedef struct dictEntry {
 } dictEntry;
 ```
 
-The dict also use some OOP method. You can use the `dictType` to pass in your costomized
+The dict also use some OOP methods. You can use the `dictType` to pass in your costomized
  hash function, compare function, constructor or desctructor of key and value.
 
 ```c

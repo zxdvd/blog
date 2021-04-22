@@ -12,7 +12,7 @@ It supports 3 pool modes: session, transaction and statement. `statement` mode m
 
 ### session reset
 Default session reset command is `DISCARD ALL` and you can overwrite it using
- `server_reset_query`. `pgbouncer` only reset runs this in session mode by default.
+ `server_reset_query`. `pgbouncer` only runs this in session mode by default.
  But you can force it to run in transaction mode by enable `server_reset_query_always`.
 
 ### pool size and connection limit

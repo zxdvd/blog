@@ -75,7 +75,7 @@ You can achieve read/write splitting at application level. Using two database en
  endpoint or not. You need to modify your codes a lot and you may get trouble if some
  ORMs don't support it well.
 
-With L4 proxy, it is possible to achieve transparent read/write splitting. It means that
+With L7 proxy, it is possible to achieve transparent read/write splitting. It means that
  you don't need to change you code or only change very few codes. The query knows that
  whether it's a simple select query or not and whether it's in a read-only transaction
  or not. It can route reading to replication server safely. It's a single unified endpoint

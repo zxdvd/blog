@@ -111,6 +111,7 @@ void feedAppendOnlyFile(struct redisCommand *cmd, int dictid, robj **argv, int a
 
     sdsfree(buf);
 }
+```
 
 ### flush AOF buffer to file and fsync
 Redis needs to write temporary data buffered in `server.aof_buf` to file in time to

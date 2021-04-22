@@ -22,7 +22,7 @@ By this way, operations on `map` won't block for a long time when it is resize a
 
 Go also uses chained hash map, but more complicated. Each hash slot is linked
  buckets. But each bucket holds `8` key value pairs instead of 1. The 8 key value
- pairs are packed together so each it's quick to loop through them. That's why
+ pairs are packed together so that it's quick to loop through them. That's why
  it uses a large load factor, 6.5, while java is 0.75. Considering that 8 KV
  packed together, the load factor is similar to 6.5/8 (~0.81).
 

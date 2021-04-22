@@ -1,6 +1,6 @@
-<!---
+```metadata
 tags: linux, memory, mmap
--->
+```
 
 ## memory mapping
 A memory mapping is a set of page table entries describing the properties of a

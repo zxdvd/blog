@@ -102,8 +102,7 @@ We can also use `FOR` loop statement:
     END LOOP;
 ```
 
-You can use `FOR IN` to loop an `anyarray` array since you cannot do it with `FOREACH`
- as you can't declare an element of type `anyelement`:
+You can use `FOR IN` to loop an `anyarray` array:
 
 ```sql
 create or replace function test_loop_array(arr1 anyarray) returns void as $$

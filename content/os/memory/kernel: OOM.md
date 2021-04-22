@@ -23,7 +23,7 @@ Kernel allows to panic when OOM happens. But this is not the default option. Ker
  killer.
 
 It will calculate score for each process and try to find the worst (the one with
- highest score) to kill. The kernerl function `oom_badness` is in charge of this.
+ highest score) to kill. The kernel function `oom_badness` is in charge of this.
 
 Following is the key code to get the score:
 

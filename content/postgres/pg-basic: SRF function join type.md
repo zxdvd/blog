@@ -79,7 +79,7 @@ Let's dig it a little deeper. Is `NULL` in paramters really matters? The answer 
 
 When you defined a function, you can specify multiple qualifiers. If you added `STRICT` ( or 
 `RETURNS NULL ON NULL INPUT`, they are same), then it means that this function will return NULL 
-if any of its paramters are NULL. And for SRF function, it seems that it well return 0 rows.
+if any of its paramters are NULL. And for SRF function, it seems that it will return 0 rows.
 
 You can get this info from `pg_proc` using following query:
 
