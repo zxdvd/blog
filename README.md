@@ -55,6 +55,7 @@
 * [kubernetes / basic: user authentication overview](./content/kubernetes/basic%3A%20user%20authentication%20overview.md)
 * [kubernetes / cri: migrate from docker to containerd](./content/kubernetes/cri%3A%20migrate%20from%20docker%20to%20containerd.md)
 * [kubernetes / scheduling strategy overview](./content/kubernetes/scheduling%20strategy%20overview.md)
+* [kubernetes / scheduling: priority and preemption](./content/kubernetes/scheduling%3A%20priority%20and%20preemption.md)
 * [kubernetes / setup: update certificates with extra SANs](./content/kubernetes/setup%3A%20update%20certificates%20with%20extra%20SANs.md)
 * [nginx / basic: next upstream](./content/nginx/basic%3A%20next%20upstream.md)
 * [nginx / nginx: process phase](./content/nginx/nginx%3A%20process%20phase.md)
