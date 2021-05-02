@@ -74,6 +74,7 @@
 * [memory / tcmalloc intro](./content/os/memory/tcmalloc%20intro.md)
 * [process / kernel process](./content/os/process/kernel%20process.md)
 * [process / process group and session](./content/os/process/process%20group%20and%20session.md)
+* [process / scheduler](./content/os/process/scheduler.md)
 * [process / scheduler: core code](./content/os/process/scheduler%3A%20core%20code.md)
 * [tcpip / socket io: read](./content/os/tcpip/socket%20io%3A%20read.md)
 * [tcpip / socket: raw socket](./content/os/tcpip/socket%3A%20raw%20socket.md)
