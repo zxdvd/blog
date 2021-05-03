@@ -17,6 +17,7 @@
 * [process / process group and session](./process/process%20group%20and%20session.md)
 * [process / scheduler](./process/scheduler.md)
 * [process / scheduler: core code](./process/scheduler%3A%20core%20code.md)
+* [process / scheduler: stats](./process/scheduler%3A%20stats.md)
 * [tcpip / socket io: read](./tcpip/socket%20io%3A%20read.md)
 * [tcpip / socket: raw socket](./tcpip/socket%3A%20raw%20socket.md)
 * [tcpip / tcp: socket options](./tcpip/tcp%3A%20socket%20options.md)
