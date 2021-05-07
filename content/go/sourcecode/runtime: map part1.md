@@ -171,4 +171,4 @@ func tophash(hash uintptr) uint8 {
 ```
 
 ### references
-- [java source: HashMap](https://github.com/openjdk/jdk/blob/jdk-14%2B10/src/java.base/share/classes/java/util/HashMap.java)
+- [go source: map](https://github.com/golang/go/blob/go1.13.5/src/runtime/map.go)

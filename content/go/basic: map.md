@@ -100,6 +100,53 @@ So for the case that loading large amount of data and using it as a read-only ma
  you'd better initiate it with good hint to avoid leaving it in the middle of a
  growing. Otherwise, you are wasting memory of an extra bucket array.
 
+### concurrent map
+To use map in concurrent situations, you can use either a normal map that protected
+ by `sync.Mutex` or `sync.Map`. So what's the difference?
+
+Most of time, it is suggested to use map protected by `sync.Mutex`. According to the
+ official document of `sync.Map`, `sync.Map` is suggested in following cases:
+
+    // The Map type is optimized for two common use cases: (1) when the entry for a given
+    // key is only ever written once but read many times, as in caches that only grow,
+    // or (2) when multiple goroutines read, write, and overwrite entries for disjoint
+    // sets of keys. In these two cases, use of a Map may significantly reduce lock
+    // contention compared to a Go map paired with a separate Mutex or RWMutex.
+
+The `sync.Map` has a shallow map that stored using `atomic.Value`. For cases that
+ reads for most time, it may not use the internal `Mutex`.
+
+```go
+// sync/map.go
+type Map struct {
+	mu Mutex
+	read atomic.Value // readOnly
+	dirty map[interface{}]*entry
+}
+
+// readOnly is an immutable struct stored atomically in the Map.read field.
+type readOnly struct {
+	m       map[interface{}]*entry
+	amended bool // true if the dirty map contains some key not in m.
+}
+
+func (m *Map) Load(key interface{}) (value interface{}, ok bool) {
+	read, _ := m.read.Load().(readOnly)
+	e, ok := read.m[key]
+	if !ok && read.amended {
+		m.mu.Lock()
+        // write dirty map
+		m.mu.Unlock()
+	}
+	if !ok {
+		return nil, false
+	}
+	return e.load()
+}
+```
+
+Another bad side of `sync.Map` is that it uses `interface{}` instead of specific
+ type. It's not safe.
 
 ### references
 - [go spec: compare operators](https://golang.org/ref/spec#Comparison_operators)
