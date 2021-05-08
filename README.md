@@ -58,6 +58,7 @@
 * [kubernetes / scheduling strategy overview](./content/kubernetes/scheduling%20strategy%20overview.md)
 * [kubernetes / scheduling: priority and preemption](./content/kubernetes/scheduling%3A%20priority%20and%20preemption.md)
 * [kubernetes / setup: update certificates with extra SANs](./content/kubernetes/setup%3A%20update%20certificates%20with%20extra%20SANs.md)
+* [kubernetes / source code: scheduling overview](./content/kubernetes/source%20code%3A%20scheduling%20overview.md)
 * [nginx / basic: next upstream](./content/nginx/basic%3A%20next%20upstream.md)
 * [nginx / nginx: process phase](./content/nginx/nginx%3A%20process%20phase.md)
 * [nginx / nginx: request-rate-limit](./content/nginx/nginx%3A%20request-rate-limit.md)
