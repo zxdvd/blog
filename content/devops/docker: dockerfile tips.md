@@ -51,7 +51,7 @@ If you want `/app/dir1`, you need `COPY dir1 /app/dir1`.
 And you'll get error for `COPY dir1 dir2 /app` since you need to use `/app/` to specify
  that the target is a directory but not a plain file.
 
-- chown supports. From docker 17.09, you can use `COPY --chown user:group` to change
+- chown supports. From docker 17.09, you can use `COPY --chown=user:group` to change
  owner of added files. It saves an extra `RUN chown`.
 
 ### references
