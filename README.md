@@ -25,6 +25,7 @@
 * [data_structure / tree: treap](./content/data_structure/tree%3A%20treap.md)
 * [database / mysql: basic notes](./content/database/mysql%3A%20basic%20notes.md)
 * [debug / system: high load due to nfs hanging](./content/debug/system%3A%20high%20load%20due%20to%20nfs%20hanging.md)
+* [design / workflow design](./content/design/workflow%20design.md)
 * [devops / docker: dockerfile tips](./content/devops/docker%3A%20dockerfile%20tips.md)
 * [devops / docker: multi-stage build](./content/devops/docker%3A%20multi-stage%20build.md)
 * [go / basic: bytes, string and runes](./content/go/basic%3A%20bytes%2C%20string%20and%20runes.md)
