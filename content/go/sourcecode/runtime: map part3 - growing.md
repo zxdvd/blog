@@ -99,7 +99,11 @@ Thinking:
     the map is in growing state, then it will be in this state for long time and
     it uses too much memory since both old buckets and new buckets co-exist.
 
-    Maybe it should also grow during accessing.
+    But the good side of not growing during reading is that multiple goroutines
+    can do concurrent reading at the same time. No need to use `mutex`.
+
+    And the `sync.Map` also depends on this. If map grows during reading, it will
+    break `sync.Map`.
 
 
 ### how to grow gradually

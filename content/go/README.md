@@ -11,5 +11,6 @@
 * [sourcecode / runtime: map part1](./sourcecode/runtime%3A%20map%20part1.md)
 * [sourcecode / runtime: map part2 - get and set](./sourcecode/runtime%3A%20map%20part2%20-%20get%20and%20set.md)
 * [sourcecode / runtime: map part3 - growing](./sourcecode/runtime%3A%20map%20part3%20-%20growing.md)
+* [sourcecode / sync: map](./sourcecode/sync%3A%20map.md)
 * [sourcecode / sync: wait group](./sourcecode/sync%3A%20wait%20group.md)
 * [test: test cases for cli](./test%3A%20test%20cases%20for%20cli.md)
