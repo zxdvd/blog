@@ -46,15 +46,15 @@ The `affinity` and `anti-affinity` are more advanced strategies. They provide po
         * requiredDuringSchedulingIgnoredDuringExecution
         * preferredDuringSchedulingIgnoredDuringExecution
         * requiredDuringSchedulingRequiredDuringExecution (planned)
-    - anti-affinity can used to exclude nodes
+    - anti-affinity can used to exclude nodes with some kinds of pods
     - support logical operations AND, OR
     - support multiple matching operators like `In`, `NotIn`, `Exists`, `DoesNotExist`, `Gt`, `Lt`
 
-The `affinity` and `anti-affinity` can be used to nodes and pods. So there are
- `nodeAffinity`, `nodeAntiAffinity`, `podAffinity` and `podAntiAffinity`.
+For node, there is only `affinity` while for pod it has both `affinity` and `anti-affinity`.
+So there are `nodeAffinity`, `podAffinity` and `podAntiAffinity`.
 
-### nodeAffinity and nodeAntiAffinity
-`nodeAffinity` and `nodeAntiAffinity` are used to define that whether the pods can be scheduled
+### nodeAffinity
+`nodeAffinity` are used to define that whether the pods can be scheduled
  to nodes based on labels on each node.
 
 A example from official document:
@@ -76,9 +76,7 @@ spec:
 ```
 
 ### podAffinity and podAntiAffinity
-`podAffinity` and `podAntiAffinity` are similar to `nodeAffinity` and `nodeAntiAffinity`.
- The difference is that `podAffinity` matches labels against labels of other pods in each
- node instead of labels of node itself.
+ The `podAffinity` matches labels against labels of other pods in each node.
 
 You can use `podAffinity` to deploy services that have strong relations to same node,
  like web server and cache server, web server and database proxy. By this way, RPCs
@@ -87,6 +85,33 @@ You can use `podAffinity` to deploy services that have strong relations to same 
 The `podAntiAffinity` can be used to deploy a service evenly. For example, you can deploy
  cache server that anti-affinity with itself so that you won't have two cache servers
  deployed at same node.
+
+A example from official document:
+
+```yaml
+spec:
+  affinity:
+    podAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchExpressions:
+          - key: security
+            operator: In
+            values:
+            - S1
+        topologyKey: topology.kubernetes.io/zone
+    podAntiAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 100
+        podAffinityTerm:
+          labelSelector:
+            matchExpressions:
+            - key: security
+              operator: In
+              values:
+              - S2
+          topologyKey: topology.kubernetes.io/zone
+```
 
 #### topologyKey
 For pod affinity/anti-affinity, you need to specify a `topologyKey`, it is node label.
