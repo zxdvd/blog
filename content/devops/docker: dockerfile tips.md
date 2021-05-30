@@ -54,5 +54,24 @@ And you'll get error for `COPY dir1 dir2 /app` since you need to use `/app/` to 
 - chown supports. From docker 17.09, you can use `COPY --chown=user:group` to change
  owner of added files. It saves an extra `RUN chown`.
 
+### docker buildkit features
+The docker buildkit is integrated to docker since 18.06. You can enable it via
+ `DOCKER_BUILDKIT=1 docker build`.
+
+And for dockerfile, you need to add `#syntax=docker/dockerfile:1.2` at beginning to enable
+ it.
+
+#### mount cache
+Sometimes, you may want to share some directories across multiple building, for example,
+ yarn cache directory, maven cache, go build cache, pip download cache. The dockerfile
+ doesn't support feature like `docker run -v host_volume:container_volume`. However, the
+ buildkit supports `RUN --mount=type=cache,target=/xxxx` sytax so that `/xxxx` directory
+ will be cached and reused across buildings. For example:
+
+    RUN --mount=type=cache,target=/root/.m2 mvn clean package
+
+By this way, the downloaded packages will be cached in `/root/.m2` volume. This volume
+ is shared even though you changed dockerfile name or target image name.
+
 ### references
 - [docker doc: best practice - add or copy](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#add-or-copy)

@@ -50,7 +50,7 @@ To insert a new node, just find the node before it and add it after that.
 Each node has a level of at least 1. But what exactly value should it be? Redis use the
  following function to calculate the level when inserting a new node.
 
-So it has 1/4 probability to be 1, 3/16 probability to be 2, 3/64 probability to be 3,
+So it has 3/4 probability to be 1, 3/16 probability to be 2, 3/64 probability to be 3,
 3/(4^n) probability to be n. It's like btree with 4 children. You can adjust `ZSKIPLIST_P`
  to change the probability model.
 

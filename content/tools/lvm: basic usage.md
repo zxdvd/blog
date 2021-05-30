@@ -34,7 +34,7 @@ We can use the loopback device directly or create partition and use partion in L
 
     # parted /dev/loop0 print           # show disk and partition info
     # parted /dev/loop0 mklabel gpt     # erase all and initialize a GPT partition table
-    # parted /dev/loop0 mkpart primary 1s 100%    # create a primary partition use whole disk
+    # parted --align optimal /dev/loop0 mkpart primary 0% 100%    # create a primary partition use whole disk
 
 Iniatialize a physical volume. This is optional since `vgcreate` will do it if not initialized.
 
@@ -57,7 +57,7 @@ You cannot add an added pv to another vg. You'll get error.
 You need to specify a size using `-L 10G` or `-l 1000` (extents). You'll fail if specifying
  a size large than capacity of vg. You can use `-n lv1` to specify the name of the lv.
 
-    # lvcreate -L 100M vg1
+    # lvcreate -L 100M --name lv1 vg1
     # lvdisplay                         # show LVs
 
 Then you got a device `/dev/vg1/lvol0`.

@@ -58,8 +58,10 @@ For the CFS, it may lead to problem that a process with many threads occupies mo
  applications.
 
 Since kernel 2.6.38, kernel provides the autogrouping feature so that cpu time share is
- divided among autogroups but not threads. Then for above situation, the `make` can only
- get at most `1/3` CPU time.
+ divided among autogroups but not threads. A new autogroup is created when a new session
+ is created via `setsid`. Processes in the same session share the same autogroup.
+
+Then for above situation, the `make` can only get at most `1/3` CPU time.
 
 ### SMP
 For a machine with multiple core CPUs, it can run multiple tasks at the same time. If all

@@ -62,6 +62,18 @@ Default auth type is `md5`. If you want to add a user `zxd` with password `12345
 Attention, you need `echo -n` since echo will add `\n` at the end by default and then you'll
  md5 of `12345zxd\n` which is not expected.
 
+### session parameters
+Postgres supports a lot of session parameters that you can use `set xx=xx` to enable it.
+ However, pgbouncer only allows you to use `client_encoding`, `datestyle`, `timezone` and
+ `standard_conforming_strings` by default. You'll get `unsupported startup parameter` error
+ if you use other parameters.
+
+This leads to problem for newer version JDBC since it will set `extra_float_digits`. To
+ avoid this, you can use the `ignore_startup_parameters` in pgbouncer config so that it
+ will allow these parameters. For example:
+
+    ignore_startup_parameters = extra_float_digits
+
 ### management console
 `pgbouncer` has a internal management console that you can get many statistics about
  clients, backends and pools. You need to set `admin_users` and related password, then
