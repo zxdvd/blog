@@ -1,6 +1,7 @@
 
 ### Notes
 
+* [architecture](./architecture.md)
 * [basic: auth - RBAC](./basic%3A%20auth%20-%20RBAC.md)
 * [basic: configmap](./basic%3A%20configmap.md)
 * [basic: kubeadm](./basic%3A%20kubeadm.md)
