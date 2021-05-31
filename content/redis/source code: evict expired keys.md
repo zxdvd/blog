@@ -1,6 +1,8 @@
-<!---
-tags: redis, expire
--->
+```metadata
+tags: redis, sourcecode, evict, expire
+```
+
+## redis source code: evict expired keys
 
 Each db uses a dict to store the expired timestamp for keys that have expire set.
 But then how to detect and expire keys using the dict? Traverse the whole dict to check
