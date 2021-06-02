@@ -15,7 +15,7 @@ And TLS 1.2 needs 2 extra round trips besides TCP handshake. This really hurts f
  contains cipher negotiation and `key exchange` depends on the selected cipher.
 
 However, in TLS 1.3, the `key exchange` algorithm was specified to DH only (RSA removed),
- so that the `hello` and `key exchange` info are mreged to a same message. And only one
+ so that the `hello` and `key exchange` info are merged to a same message. And only one
  round trip is enough.
 
 For security side, TLS 1.3 removed a lot of obsolete cipher suites which is applicable

@@ -17,5 +17,6 @@
 * [setup: update certificates with extra SANs](./setup%3A%20update%20certificates%20with%20extra%20SANs.md)
 * [source code: controller - 1. how controller works](./source%20code%3A%20controller%20-%201.%20how%20controller%20works.md)
 * [source code: controller - 2. controller manager](./source%20code%3A%20controller%20-%202.%20controller%20manager.md)
+* [source code: controller - podgc controller](./source%20code%3A%20controller%20-%20podgc%20controller.md)
 * [source code: scheduling - how to find a proper node for pod](./source%20code%3A%20scheduling%20-%20how%20to%20find%20a%20proper%20node%20for%20pod.md)
 * [source code: scheduling overview](./source%20code%3A%20scheduling%20overview.md)
