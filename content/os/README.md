@@ -3,6 +3,7 @@
 
 * [bench / io-bench: fio](./bench/io-bench%3A%20fio.md)
 * [bench / io-bench: ioping](./bench/io-bench%3A%20ioping.md)
+* [container / cgroup freezer](./container/cgroup%20freezer.md)
 * [container / cgroup overview](./container/cgroup%20overview.md)
 * [fs / go through the read syscall](./fs/go%20through%20the%20read%20syscall.md)
 * [io / read write apis](./io/read%20write%20apis.md)
