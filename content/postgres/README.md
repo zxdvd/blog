@@ -12,6 +12,7 @@
 * [pg-basic: null的一些注意事项](./pg-basic%3A%20null%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9.md)
 * [pg-basic: pg_dump](./pg-basic%3A%20pg_dump.md)
 * [pg-basic: recursive query](./pg-basic%3A%20recursive%20query.md)
+* [pg-basic: sequence](./pg-basic%3A%20sequence.md)
 * [pg-basic: syntax string](./pg-basic%3A%20syntax%20string.md)
 * [pg-basic: unique constraint](./pg-basic%3A%20unique%20constraint.md)
 * [pg-basic: upsert](./pg-basic%3A%20upsert.md)

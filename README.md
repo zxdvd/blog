@@ -109,6 +109,7 @@
 * [postgres / pg-basic: null的一些注意事项](./content/postgres/pg-basic%3A%20null%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9.md)
 * [postgres / pg-basic: pg_dump](./content/postgres/pg-basic%3A%20pg_dump.md)
 * [postgres / pg-basic: recursive query](./content/postgres/pg-basic%3A%20recursive%20query.md)
+* [postgres / pg-basic: sequence](./content/postgres/pg-basic%3A%20sequence.md)
 * [postgres / pg-basic: syntax string](./content/postgres/pg-basic%3A%20syntax%20string.md)
 * [postgres / pg-basic: unique constraint](./content/postgres/pg-basic%3A%20unique%20constraint.md)
 * [postgres / pg-basic: upsert](./content/postgres/pg-basic%3A%20upsert.md)
