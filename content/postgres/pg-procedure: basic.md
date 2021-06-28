@@ -48,6 +48,35 @@ end $$ language plpgsql;
 You can get a list of internal errors and exceptions at
  [here](https://www.postgresql.org/docs/10/errcodes-appendix.html).
 
+### dynamic sql executing
+Sometimes, you may want to generate dynamic sql and execute it. Then you can use the
+ `EXECUTE` keyword to execute a formated sql. For example:
+
+```sql
+DO $$
+declare r record;
+begin
+for r in select * from pg_class where relkind in ('r', 'm') limit 3
+loop
+    EXECUTE format('select ''%s'', pg_relation_size(%s)', r.relname, r.oid);
+end loop;
+end $$ language plpgsql;
+```
+
+The `EXECUTE` can return results as table so that you can use `FOR IN` to loop the
+ result. Let's change above example a little like following to show the result of
+ dynamic executed sql:
+
+```sql
+for r in select * from pg_class where relkind in ('r', 'm') limit 3
+loop
+    for r1 in execute format('select ''%s'', pg_relation_size(%s)', r.relname, r.oid)
+    loop
+        raise info 'result %', r1;
+    end loop;
+end loop;
+```
+
 ### security definer
 By default, function will be executed using current user (SECURITY INVOKER). However,
  you can set it to be executed using the owner via option `SECURITY DEFINER`.

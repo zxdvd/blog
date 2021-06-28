@@ -25,6 +25,10 @@ Some differences:
  which relies on `epoll` to handle network events. While `pgbouncer` benefits from
  `libevent` so that it supports many platforms (linux, bsd, windows).
 
+- you can separate users for different databases easily. But for pgbouncer, users are
+ shared among all databases. You can use `auth_query` to achieve similar effects but
+ its a little complex.
+
 ### demo config
 A simple demo config:
 

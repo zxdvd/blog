@@ -9,7 +9,7 @@ tags: kubernetes, architecture
     docker      ----->         kubernetes
 
 ### components
-    ![architecture](./images/kubernetes-architecture.png)
+![architecture](./images/kubernetes-architecture.png)
 
     - etcd
         + data store

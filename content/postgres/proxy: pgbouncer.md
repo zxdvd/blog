@@ -29,6 +29,9 @@ Supported timeouts are:
 
 - server_idle_timeout
 - server_connect_timeout
+- server_lifetime
+    + backend connection will be closed if used longer than this
+    + default 3600 seconds
 - client_login_timeout
 - dns_max_ttl
 
@@ -95,6 +98,34 @@ admin_users=admin
 myorder = host=192.168.10.10 port=3433 dbname=order user=order_app password=123456
 ```
 
+### systemd service file
+Following is a simple systemd unit file for pgbouncer (got it from issue 308).
+
+```text
+[Unit]
+Description=pgBouncer connection pooling for PostgreSQL
+
+[Service]
+Type=forking
+User=postgres
+Group=postgres
+
+WorkingDirectory=/apps/pgbouncer/pgbouncer-1.14.0/
+
+PermissionsStartOnly=true
+ExecStartPre=-/bin/mkdir -p /var/run/pgbouncer /var/log/pgbouncer
+ExecStartPre=/bin/chown -R postgres:postgres /var/run/pgbouncer /var/log/pgbouncer
+ExecStart=/apps/pgbouncer/pgbouncer-1.14.0/pgbouncer -d /apps/pgbouncer/pgbouncer-1.14.0/pgbouncer.conf
+ExecReload=/bin/kill -SIGHUP $MAINPID
+PIDFile=/var/run/pgbouncer/pgbouncer.pid
+
+[Install]
+WantedBy=multi-user.target
+```
+
+You need to set `pidfile` in pgbouncer.conf that matches `PIDFile` in this unit file.
+
 ### references
 - [pgbouncer doc: config](https://www.pgbouncer.org/config.html)
 - [pgbouncer doc: usage](https://www.pgbouncer.org/usage.html)
+- [github issue: systemd example](https://github.com/pgbouncer/pgbouncer/issues/308)

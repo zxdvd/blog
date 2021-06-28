@@ -65,5 +65,9 @@ PostmasterMain
                                     // do auth according to auth type
 ```
 
+### reload
+After changing the `pg_hba.conf`, you need to reload the config so that it will take effects.
+ You can reload using simple sql query `select pg_reload_conf()` or `pg_ctl reload`.
+
 ### references
 - [postgres doc: pg_hba.conf](https://www.postgresql.org/docs/12/auth-pg-hba-conf.html)
